@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Login 10</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Google Fonts  -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+
+
+	</head>
+	<body class="img js-fullheight" style="background-image: url(/assets/images/bg.jpg);">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Login</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+		      	<h3 class="mb-4 text-center">Have an account?</h3>
+		      	<form action="/login"  method="post"  class="signin-form">
+				{{!-- {{#if loginErr}}
+				<h1>{{loginErr}}</h1> --}}
+				{{!-- <p class="error">{{loginErr}}</p> --}}
+				
+
+				{{!-- {{/if}} --}}
+
+				 {{#if title}}
+              <p class="text-danger">invalid email or password</p>
+              {{/if}}
+              {{#if logout}}
+              <p class="text-success">log out success</p>
+              {{/if}}
+
+				{{#if loginErr}}
+                <p class="btn-danger">{{loginErr}}</p>
+              {{/if}}
+		      		<div class="form-group">
+		      			<input type="email"  name="email" id="email" class="form-control  mt-4" placeholder="Email" required>
+		      		</div>
+	            <div class="form-group">
+	              <input id="password" name="password" type="password" class="form-control  mt-4" placeholder="Password" required>
+	              <span toggle="#password-field" onclick="togglePassword()" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	            </div>
+	            <div class="form-group">
+	            	<button type="submit" class="form-control btn btn-primary submit px-3 ">LogIn</button>
+	            </div>
+	            <div class="form-group d-md-flex">
+	            	<div class="w-50">
+		            	{{!-- <label class="checkbox-wrap checkbox-primary">Remember Me
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+									</label> --}}
+								</div>
+								<div class="w-50 text-md-right">
+									<a href="#" style="color: #fff">Forgot Password</a>
+								</div>
+	            </div>
+	          </form>
+	          <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+	          <div class="social d-flex text-center">
+	          	<a href="/otp-login" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Login with OTP</a>
+	          	
+	          </div>
+              <div>
+                <a href="/signup">Create new account?</a>
+              </div>
+
+		      </div>
+				</div>
+			</div>
+		</div>
+		
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+  
+
+
+	</body>
+
+
+	<style>
+	
+
+body {
+    {{!-- background-color: #ff99f5;
+    background-image:
+        radial-gradient(at 61% 4%, hsla(303, 91%, 61%, 1) 0px, transparent 50%),
+        radial-gradient(at 75% 66%, hsla(196, 91%, 79%, 1) 0px, transparent 50%),
+        radial-gradient(at 98% 88%, hsla(76, 87%, 78%, 1) 0px, transparent 50%),
+        radial-gradient(at 23% 16%, hsla(238, 96%, 77%, 1) 0px, transparent 50%),
+        radial-gradient(at 95% 65%, hsla(13, 91%, 75%, 1) 0px, transparent 50%),
+        radial-gradient(at 10% 79%, hsla(228, 96%, 69%, 1) 0px, transparent 50%),
+        radial-gradient(at 85% 58%, hsla(328, 81%, 68%, 1) 0px, transparent 50%);
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15rem 0; --}}
+}
+
+.card {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 40px;
+}
+
+.lock-icon {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 12px;
+}
+
+.passInput {
+    margin-top: 15px;
+    width: 80%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid deepskyblue;
+    font-size: 15px;
+    color: white;
+    outline: none;
+}
+
+button {
+    margin-top: 15px;
+    width: 80%;
+    background-color: deepskyblue;
+    color: white;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+	</style>
+</html>
+

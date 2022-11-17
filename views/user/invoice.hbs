@@ -1,0 +1,171 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML to PDF</title>
+<style>
+    .elem {
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+<div class="elem">
+ 
+    <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 padding">
+        <div class="card">
+        <div class="card-header p-4">
+        <a class="pt-2 d-inline-block" href="index.html" data-abc="true">Nextmobi.com</a>
+
+        {{!-- {{#each orders}} --}}
+        <div class="float-right"> <h3 class="mb-0">Invoice {{orders._id}}</h3>
+        Date: {{orders.date}}</div>
+
+       
+        </div>
+        <div class="card-body">
+        <div class="row mb-4">
+        <div class="col-sm-6">
+        <h5 class="mb-3">From:</h5>
+        <h3 class="text-dark mb-1">NextMobi</h3>
+        <div>29, Singla Street</div>
+        <div>Sikeston,New Delhi 110034</div>
+        <div>Email: contact@nextmobi.com</div>
+        <div>Phone: +91 9744187790</div>
+        </div>
+        <div class="col-sm-6 ">
+        <h5 class="mb-3">To:</h5>
+        <h3 class="text-dark mb-1"> {{orders.address.firstName}} {{orders.address.lastName}}</h3>
+        <div>{{orders.address.address}} </div>
+        <div>{{orders.address.country}}  {{orders.address.city}} </div>
+         <div>{{orders.address.state}}  {{orders.address.pincode}} </div>
+        
+        <div>Email:{{orders.address.email}} </div></div>
+        <div>Phone: {{orders.address.phone}}</div>
+        </div>
+
+        
+        <strong class="text-dark"><h1>Total</strong>
+       
+        
+        <strong class="text-dark">₹ {{orders.totalAmount}}</h1></strong>
+         {{!-- {{/each}} --}}
+        </div>
+       
+        <div class="table-responsive-sm">
+
+         
+
+        <table class="table table-striped">
+        <thead>
+        <tr>
+        <th class="center">#</th>
+        <th>Item</th>
+        {{!-- <th>Description</th> --}}
+        <th class="right">Price</th>
+        <th class="center">Qty</th>
+        {{!-- <th class="right">Total</th> --}}
+
+
+        </tr>
+
+        </thead>
+        <tbody>
+{{#each orderProducts}}
+        <tr>
+        <td class="center"></td>
+        
+        <td class="left strong">{{this.product.name}}</td>
+        {{!-- <td class="left">Iphone 10X with headphone</td> --}}
+        <td class="right">₹ {{this.product.price}}</td>
+        <td class="center">{{this.quantity}}</td>
+         {{!-- <td class="right">$15,000</td> --}}
+        </tr>
+       {{/each}}
+        </tbody>
+        </table>
+
+
+
+        </div>
+        
+        <div class="card-footer bg-white">
+        <p class="mb-0">nextmobi.com</p>
+        </div>
+        </div>
+        </div>
+
+</div>
+<div>
+
+  
+<div class="text-center">
+<button class="download btn btn-primary ">Download PDF</button>
+</div>
+
+</div>
+<script>
+    let div = document.querySelector(".elem");
+    let btn = document.querySelector(".download");
+    btn.addEventListener('click', () => {
+        html2pdf().from(div).save()
+    })
+
+
+
+
+    var table = document.getElementsByTagName('table')[0],
+        rows = table.getElementsByTagName('tr'),
+        text = 'textContent' in document ? 'textContent' : 'innerText';
+
+    for (var i = 1, len = rows.length; i < len; i++) {
+        rows[i].children[0][text] = i;
+    }
+</script>
+
+
+{{!-- <style>
+    body{
+
+background-color: #000;
+}
+
+.padding{
+
+padding: 2rem !important;
+}
+
+.card {
+  margin-bottom: 30px;
+  border: none;
+  -webkit-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+  -moz-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+  box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+}
+
+.card-header {
+  background-color: #fff;
+  border-bottom: 1px solid #e6e6f2;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 15px;
+  line-height: 26px;
+  color: #3d405c;
+  margin: 0px 0px 15px 0px;
+  font-family: 'Circular Std Medium';
+}
+
+.text-dark {
+  color: #3d405c !important;
+}
+</style> --}}
+</body>
+
+
+</html>

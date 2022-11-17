@@ -1,0 +1,21 @@
+TWILIO
+
+var accountSID = "AC740b5e8685636cf36a6127881fac33f5";
+var authToken = "8a46d085205c6c6efe12feb08a735e9b";
+var serviceID = "VA44a138becb9c6234862f714288cda5ed";
+const client = require("twilio")(accountSID, authToken);
+
+
+
+paypal.configure({
+  'mode': 'sandbox', //sandbox or live
+  'client_id': 'AcIasErQuPe7DoQVqq3e5qZLPc-8RdeKfWG8VnCE8ugZe4WFfN04D20jt1tkY34YePsmEW9Vrt11Soy1',
+  'client_secret': 'ECKyOPJEAdAMDhfSz5QbiIBqKCXKBLTdR8sYEfuq6XHnRWaGH0obzwvyj4XQAjrOj0EIJ91RNV9Jg29A'
+});
+
+razorpay
+
+
+ const secret = 'DqDAwAepgnL7IffDHFdFRtme';
+
+  key_id,key_secret: 'rzp_test_mNA47lbEYOZEuI',

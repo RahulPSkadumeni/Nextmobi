@@ -1,0 +1,270 @@
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+	td {
+		font-size: 1.5rem;
+	}
+</style>
+
+<div class="page-wrapper">
+
+	<main class="main">
+		<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+			<div class="container">
+				<h1 class="page-title">Checkout<span>Shop</span></h1>
+			</div><!-- End .container -->
+		</div><!-- End .page-header -->
+		<nav aria-label="breadcrumb" class="breadcrumb-nav">
+			<div class="container">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+					<li class="breadcrumb-item"><a href="#">Shop</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Checkout</li>
+				</ol>
+			</div><!-- End .container -->
+		</nav><!-- End .breadcrumb-nav -->
+
+		<div class="page-content">
+			<div class="checkout">
+				<div class="container">
+					<div class="col-4">
+						<form id="apply-coupon">
+							<label for="coupon">Enter the coupon</label>
+							<input type="text" name="code" class="form-control">
+							<button class="btn btn-success" type="submit">Apply</button>
+						</form>
+					</div><!-- End .checkout-discount -->
+
+					<form id="checkout-form">
+						<div class="row">
+							<div class="col-lg-7">
+								<h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
+
+
+								{{#each address}}
+								<tr>
+									<td>
+										<input checked value="{{this._id}}" type="radio" name="addressId">
+										<span
+											style="display: inline-block; height: 100px; width: 350px; border: 1px solid green; margin-bottom: 20px; padding: 20px; border-radius: 6px;">
+											{{!-- <div class="row"> --}}
+												{{this.firstName}} {{this.lastName}}
+												{{this.city}} {{this.state}} {{this.country}}
+												{{this.address}} {{this.pincode}}
+												{{!-- </div> --}}
+										</span>
+									</td> <br>
+								</tr>
+								{{/each}}
+								{{!-- <input hidden type="text" name="user" value="{{vUser.name}}"> --}}
+								<a href="/add-address">Add address</a>
+							</div><!-- End .col-lg-9 -->
+
+
+							<aside class="col-lg-5">
+								<div class="summary summary-cart">
+									{{!-- <h3 class="summary-title">Cart Total</h3><!-- End .summary-title --> --}}
+
+									<table class="table table-summary">
+										<tbody>
+											<tr class="summary-subtotal">
+												<td>Total Payable:</td>
+
+												<td>Rs.<span id="totalP">{{totalPrice}}</span></td>
+											</tr><!-- End .summary-subtotal -->
+											<tr>
+												<td><label for="">discounted price Rs.</label></td>
+												<td><input readonly class="form-control" name="discountedPrice"  type="text" id="discountedPrice" ></td>
+											</tr>
+											<tr class="summary-shipping">
+												<td>Shipping:</td>
+												<td>&nbsp;</td>
+											</tr>
+
+											<tr class="summary-shipping-row">
+												<td>
+													{{!-- <div class="custom-control custom-radio"> --}}
+														<input type="radio" id="paymentMethod" name="paymentMethod"
+															value="COD" checked >
+														<label for="free-shipping">Cash on
+															Delivery</label>
+													{{!-- </div><!-- End .custom-control --> --}}
+												</td>
+												<td></td>
+											</tr><!-- End .summary-shipping-row -->
+
+											<tr class="summary-shipping-row">
+												<td>
+
+													{{!-- <div class="custom-control custom-radio"> --}}
+														<input type="radio" id="standart-shipping" name="paymentMethod"
+															value="UPI">
+														<label 
+															for="standart-shipping">Razor-Pay</label>
+													{{!-- </div><!-- End .custom-control --> --}}
+												</td>
+												<td></td>
+											</tr><!-- End .summary-shipping-row -->
+
+											<tr class="summary-shipping-row">
+												<td>
+													{{!-- <div class="custom-control custom-radio"> --}}
+														<input type="radio" id="standart-shipping" name="paymentMethod"
+															value="paypal" >
+														<label
+															for="standart-shipping">Pay-Pal</label>
+													{{!-- </div><!-- End .custom-control --> --}}
+												</td>
+												<td></td>
+											</tr><!-- End .summary-shipping-row -->
+
+
+											{{!-- <tr class="summary-total">
+												<td>Total:</td>
+												{{#if couponPrice}}
+												<td><span id="total">{{totalPrice}}</span></td>
+												{{else}}
+												<td><span id="total">{{totalPrice}}</span></td>
+												{{/if}}
+											</tr><!-- End .summary-total --> --}}
+												{{!-- <input readonly type="text" id="discountedPrice" > --}}
+										</tbody>
+									</table><!-- End .table table-summary -->
+
+									<button type="submit"
+										class="btn btn-outline-primary-2 btn-order btn-block">Checkout</button>
+								</div><!-- End .summary -->
+
+							</aside><!-- End .col-lg-3 -->
+						</div><!-- End .row -->
+						<input hidden type="text" name="userId" id="" value="{{vUser._id}}">
+					</form>
+					{{!-- <a href="/search-product" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE
+							SHOPPING</span><i class="icon-refresh"></i></a> --}}
+
+
+				</div><!-- End .container -->
+			</div><!-- End .checkout -->
+		</div><!-- End .page-content -->
+	</main><!-- End .main -->
+
+
+</div><!-- End .page-wrapper -->
+<button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+
+
+</div><!-- End .mobile-menu-wrapper -->
+</div><!-- End .mobile-menu-container -->
+{{!-- <li><a href="#signin-modal" data-toggle="modal">Sign in / Sign up</a></li> --}}
+
+<div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true"><i class="icon-close"></i></span>
+				</button>
+
+				<div class="form-box">
+					<p class="text-center">Order placed successfully</p>
+				</div><!-- End .form-box -->
+			</div><!-- End .modal-body -->
+		</div><!-- End .modal-content -->
+	</div><!-- End .modal-dialog -->
+</div><!-- End .modal -->
+
+<!-- Plugins JS File -->
+<script src="assets/js/jquery.min.js"></script>
+
+{{!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script> --}}
+
+<script>
+	$("#checkout-form").submit((e) => {
+		e.preventDefault();
+		$.ajax({
+			url: '/place-order',
+			method: 'post',
+			data: $('#checkout-form').serialize(),
+			success: (response) => {
+				console.log("************")
+				console.log(response)
+				console.log("************")
+ 
+				if (response.codSuccess) {
+					location.href = '/order-success'
+				}else if(response.paypal){
+					console.log(response)
+						location.href='/pay/'+response.orderId
+				} else{
+					console.log(response)
+					razorPayment(response)
+				}
+			}
+		})
+	})
+
+
+	function razorPayment(order) {
+		var options = {
+			"key": "rzp_test_1rfHINK2JpzSyO", // Enter the Key ID generated from the Dashboard
+			"amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+			"currency": "INR",
+			"name": "MobHome",
+			"description": "Test Transaction",
+			"image": "https://example.com/your_logo",
+			"order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+			"handler": function (response) {
+
+				verifyPayment(response, order)
+			},
+			"prefill": {
+				"name": "Gaurav Kumar",
+				"email": "gaurav.kumar@example.com",
+				"contact": "9999999999"
+			},
+			"notes": {
+				"address": "Razorpay Corporate Office"
+			},
+			"theme": {
+				"color": "#3399cc"
+			}
+		};
+var rzp1 = new Razorpay(options);
+rzp1.open() 
+	}
+	function verifyPayment(payment, order){
+		$.ajax({
+			url:'/verify-payment',
+			data:{
+				payment,
+				order
+			},
+			method: 'post',
+			success: (response)=>{
+				 if(response.status){
+					location.href = '/order-success'
+				 }else{
+					alert("payment failed")
+				 }
+			}
+		})
+	}
+
+	$("#apply-coupon").submit((e) => {
+		e.preventDefault();
+		$.ajax({
+			url: '/apply-coupon',
+			method: 'post',
+			data: $('#apply-coupon').serialize(),
+			success: (response) => {
+				console.log('coupon applied')
+				{{!-- let totalPrice = document.getElementById('totalP').innerText = response.totalPriceAfterOffer --}}
+				{{!-- document.getElementById('total').innerText = response.totalPriceAfterOffer --}}
+				document.getElementById('discountedPrice').value= response.totalPriceAfterOffer
+				console.log(response.totalPriceAfterOffer)
+			}
+		})
+	})
+</script>
+
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&components=YOUR_COMPONENTS"></script>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+<!-- molla/checkout.html  22 Nov 2019 09:55:06 GMT -->
+
+
+<body>
+    <div class="page-wrapper">
+      
+
+        <main class="main">
+        	<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        		<div class="container">
+        			<h1 class="page-title">Checkout<span>Shop</span></h1>
+        		</div><!-- End .container -->
+        	</div><!-- End .page-header -->
+            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                    </ol>
+                </div><!-- End .container -->
+            </nav><!-- End .breadcrumb-nav -->
+
+            <div class="page-content">
+            	<div class="checkout">
+	                <div class="container">
+            			<div class="checkout-discount">
+            				<form action=" ">
+        						{{!-- <input type="text" class="form-control" required id="checkout-discount-input">
+            					<label for="checkout-discount-input" class="text-truncate">Have a coupon? <span>Click here to enter your code</span></label> --}}
+            				</form>
+
+
+            			</div><!-- End .checkout-discount -->
+            		
+
+
+	        							
+		                		</div>
+								
+								<!-- End .col-lg-9 -->
+								<div class="page-content">
+			<div class="checkout">
+				<div class="container">
+					<div class="col-4">
+						{{!-- <form id="apply-coupon">
+							<label for="coupon">Enter the coupon</label>
+							<input type="text" name="code" class="form-control">
+							<button class="btn btn-success" type="submit">Apply</button>
+						</form> --}}
+					</div><!-- End .checkout-discount -->
+						
+						<form
+						 action="/enter-coupon" method="post" >
+						<div class="form-group">
+						<label for="coupon"></label>
+						
+						<p style="color:rgb(223, 50, 15) ; ">{{coupon.couponAppliedStatus}}</p>
+
+						<p style="color:rgb(15, 223, 32) ; ">{{coupon.couponAppliedSucessStatus}}</p>
+				
+					
+					<div class="input-group ">
+						<input type="text" class="w-25" name="code" id="code" class="form-control"  required placeholder="coupon code">
+						<div class="input-group-append">
+					</div>
+					<button type="submit"  class="btn mt-2 btn-primary">Apply</button>
+					</form>
+					
+					<form id="checkout-form"  action="">
+						<div class="row">
+							<div class="col-lg-7">
+								<h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
+
+<div></div>
+
+								{{#each address}}
+								<tr>
+									<td>
+										<input checked value="{{this._id}}" type="radio" name="addressId">
+										<span
+											style="display: inline-block; height: 150px; width: 350px; border: 1px solid green; margin-bottom: 20px; padding: 20px; border-radius: 6px;">
+											{{!-- <div class="row"> --}}
+												<div> {{this.firstName}} {{this.lastName}}</div>
+												{{this.city}} {{this.state}} {{this.country}}
+												{{this.address}} {{this.pincode}}
+												{{!-- </div> --}}
+												<a href='/remove-address/{{this._id}}'style="margin-bottom: 5px" class="delete btn btn-danger" >Remove </a>
+												{{!-- <button type="button" style="margin-top: 10px" href="/edit-address/{{this._id}}" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit Address</button> --}}
+										{{!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button> --}}
+										{{!-- <a class="btn btn-primary"  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat"> Edit Address</a> --}}
+										<a href='/edit-address/{{this._id}}'style="margin-bottom: 5px"  class="btn btn-primary">Edit Address </a>
+
+
+										</span>
+										
+
+										
+									</td> <br>
+									
+								</tr>
+								
+								{{!-- {{/each}} --}}
+								
+								{{!-- <input hidden type="text" name="user" value="{{vUser.name}}"> --}}
+								
+	{{/each}}
+								
+							</div><!-- End .col-lg-9 -->
+						
+								<a href="/add-address">Add address</a>
+
+
+								
+		                		<aside class="col-lg-3">
+									
+		                			<div class="summary">
+		                				<h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
+
+		                				<table class="table table-summary">
+		                					<thead>
+												<tr>
+													
+												</tr>
+		                						<tr>
+		                							<th>Product</th>
+		                							<th>Total</th>
+		                						</tr>
+		                					</thead>
+
+		                					<tbody>
+		                					
+		                						<tr class="summary-subtotal">
+		                							<td>Subtotal:</td>
+		                							<td>₹{{total}}</td>
+												
+		                						</tr><!-- End .summary-subtotal -->
+		                						<tr>
+		                							<td>Shipping:</td>
+		                							<td>Free shipping</td>
+		                						</tr>
+												<tr>
+												
+													
+													{{!-- <a class="btn btn-sucess" type="submit"><i class=" icon-long-arrow-right"></i></a> --}}
+													
+												</div><!-- .End .input-group-append -->
+			        					    	</div><!-- End .input-group -->
+												</tr>
+												<tr style="color:rgb(50, 160, 50)">
+		                							<td>coupon discount:</td>
+		                							<td>₹{{coupon.discountPrice}}</td>
+		                						</tr><!-- End .summary-total -->
+
+												
+
+
+		                						<tr class="summary-total">
+		                							<td>Total:</td>
+
+													{{!-- <td>₹{{total}}</td> --}}
+		                							<td>
+														{{#if coupon.discountPrice}}
+															₹{{coupon.totalPriceAfterOffer}}
+
+																<input  name="total" id="total" value="{{coupon.totalPriceAfterOffer}}"type="hidden" > 
+														{{else}}
+
+														₹{{total}}
+
+														<input  name="total" id="total" value="{{total}}" type="hidden"> 
+														{{/if}}
+														
+
+													
+													</td>
+												
+		                						</tr><!-- End .summary-total -->
+		                					</tbody>
+		                				</table><!-- End .table table-summary -->
+										
+													
+
+
+		                				<div class="accordion-summary" id="accordion-payment">
+
+											 <div class="card">
+										        <div class="card-header" id="heading-3">
+										            <h2 class="card-title">
+										                <input  value="wallet" type="radio" class="collapsed" id=" Wallet" name="payment-method"  aria-expanded="false" aria-controls="collapse-3">
+										                Pay From Wallet 
+										                </input> 
+										            </h2>
+													<p class="amount" style="color: rgb(14, 178, 14)">₹ {{walletBalance}}</p>
+										        </div><!-- End .card-header -->
+												  </div><!-- End .card -->
+										       
+										
+										    <div class="card">
+										        <div class="card-header" id="heading-3">
+										            <h2 class="card-title">
+										                <input  value="COD" type="radio" class="collapsed" id=" cod" name="payment-method"  aria-expanded="false" aria-controls="collapse-3">
+										                 Cash on delivery
+										                </input> 
+										            </h2>
+										        </div><!-- End .card-header -->
+												  </div><!-- End .card -->
+										       
+										    <div class="card">
+										        <div class="card-header" id="heading-2">
+										            <h2 class="card-title">
+										                <input type="radio"value="Razor pay" class="collapsed"id="razorpay" name="payment-method"  aria-expanded="false" aria-controls="collapse-2">
+										                    Razor pay
+										                </input>
+										            </h2>
+										        </div><!-- End .card-header -->
+										        
+										    </div><!-- End .card -->
+
+										  
+
+										    <div class="card">
+										        <div class="card-header" id="heading-4">
+										            <h2 class="card-title">
+										                <input type="radio" value="paypal"class="collapsed" id='paypal' name="payment-method"    aria-expanded="false" aria-controls="collapse-4">
+										                    PayPal 
+										                </input>
+										            </h2>
+										        </div><!-- End .card-header -->
+										      
+										    </div><!-- End .card -->
+										    </div><!-- End .card -->
+
+
+
+		                				<button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+		                					<span class="btn-text">Place Order</span>
+		                					<span class="btn-hover-text">Proceed to Checkout</span>
+
+		                				</button>
+										<p class="text-danger" id="walletError"></p>
+		                			</div><!-- End .summary -->
+		                		</aside><!-- End .col-lg-3 -->
+		                	</div><!-- End .row -->
+            			</form>
+	                </div><!-- End .container -->
+                </div><!-- End .checkout -->
+            </div><!-- End .page-content -->
+        </main><!-- End .main -->
+
+      
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+	
+<!-- Modal -->
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+
+{{!-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> --}}
+
+	{{#each address}}
+ 
+
+  
+	{{/each}}
+	
+	
+</div>
+ <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div>
+	     <form action="/edit-address/{{address._id}}" method="post" name="address-form"  id="address-form">
+		                	<div class="row">
+		                		<div class="col-lg-9 container-fluid mb-5">
+		                			<h1 class="checkout-title align-self-center">Billing Details</h1><!-- End .checkout-title -->
+		                				<div class="row">
+		                					<div class="col-sm-6">
+		                						<label>First Name *</label>
+		                						<input type="text" id="firstname"  value="{{address.firstName}}" placeholder="{{address.firstName}}" name="firstName"class="form-control" required>
+		                					</div><!-- End .col-sm-6 -->
+
+		                					<div class="col-sm-6">
+		                						<label>Last Name *</label>
+		                						<input type="text" id='lastname' value="{{address.secondName}}" name="lastName" class="form-control" required>
+		                					</div><!-- End .col-sm-6 -->
+		                				</div><!-- End .row -->
+
+	            						
+
+	            						<label>Country *</label>
+	            						<input type="text" id="country" name="country" class="form-control" required>
+
+	            						<label>Street address *</label>
+	            						<input type="text" class="form-control" id=" street" name="address" placeholder="House number and Street name" required>
+	            						
+
+	            						<div class="row">
+		                					<div class="col-sm-6">
+		                						<label>Town / City *</label>
+		                						<input type="text"id="city" name="city" class="form-control" required>
+		                					</div><!-- End .col-sm-6 -->
+
+		                					<div class="col-sm-6">
+		                						<label>State / County *</label>
+		                						<input type="text" id="state" name ="state" class="form-control" required>
+		                					</div><!-- End .col-sm-6 -->
+		                				</div><!-- End .row -->
+
+		                				<div class="row">
+		                					<div class="col-sm-6">
+		                						<label>Postcode / ZIP *</label>
+		                						<input type="text" id="pincode" name="pincode" class="form-control" required>
+		                					</div><!-- End .col-sm-6 -->
+
+		                					<div class="col-sm-6">
+		                						<label>Phone *</label>
+		                						<input type="tel" id="mobile" name="phone" class="form-control" required>
+		                					</div><!-- End .col-sm-6 -->
+		                				</div><!-- End .row -->
+
+	                					<label>Email address *</label>
+	        							<input type="email" id="email" name="email" class="form-control" required>
+                                        <input type="text" id="" name="userId" value="{{user._id}}" class="form-control" hidden>
+
+                                        <input class="btn btn-primary" type="submit"  value="Submit">
+
+
+	        							{{!-- <div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" id="checkout-create-acc">
+											<label class="custom-control-label" for="checkout-create-acc">Create an account?</label>
+										</div><!-- End .custom-checkbox --> --}}
+
+										{{!-- <div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" id="checkout-diff-address">
+											<label class="custom-control-label" for="checkout-diff-address">Ship to a different address?</label>
+										</div><!-- End .custom-checkbox --> --}}
+
+	                					
+		                		
+		                	</div><!-- End .row -->
+            			</form>
+						  </div>
+    </div>
+	
+  </div>
+	
+
+    <script>
+
+$("#checkout-form").submit((e) => {
+	
+		e.preventDefault();
+		$.ajax({
+			
+			url: '/place-order',
+			method: 'post',
+			data: $('#checkout-form').serialize(),
+			success: (response) => {
+				console.log("************")
+				console.log(response)
+				console.log("************")
+
+				if (response.codSuccess) {
+					location.href = '/order-success'
+
+					
+				} else if (response.paypal) {
+					console.log(response)
+					location.href = '/pay/' + response.orderId
+
+				} else if (response.wallet) {
+					if(response.wallet){
+					console.log(response)
+					location.href = '/order-success'
+
+					}else{
+						document.getElementById('walletError').innerHTML = "insufficient balance"
+					}
+				} else {
+					console.log("in razor")
+					console.log("--------Razzor------------------")
+					console.log(response)
+					console.log("--------------------------")
+					razorPayment(response)
+				}
+			}
+		})
+	})
+
+
+	function razorPayment(order) {
+		
+		var options = {
+			"key": "rzp_test_mNA47lbEYOZEuI", // Enter the Key ID generated from the Dashboard
+			"amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+			"currency": "INR",
+			"name": "MobHome",
+			"description": "Test Transaction",
+			"image": "https://example.com/your_logo",
+			"order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+			"handler": function (response) {
+					
+				verifyPayment(response, order)
+			},
+			"prefill": {
+				"name": "Gaurav Kumar",
+				"email": "gaurav.kumar@example.com",
+				"contact": "9999999999"
+			},
+			"notes": {
+				"address": "Razorpay Corporate Office"
+			},
+			"theme": {
+				"color": "#3399cc"
+			}
+		};
+
+
+var rzp1 = new Razorpay(options);
+
+
+rzp1.open() 
+	}
+
+	function verifyPayment(payment, order){
+		console.log(order)
+		$.ajax({
+			url:'/verify-payment',
+			data:{
+				payment,
+				order
+
+			},
+			method: 'post',
+			success: (response)=>{
+				 if(response.status){
+					
+					location.href = '/Razorpay-order-success/'+order.receipt
+				 }else{
+					alert("payment failed")
+				 }
+			}
+		})
+	}
+
+
+
+
+
+  $('.delete').on('click',function (e) {
+        e.preventDefault();
+        var self = $(this);
+        console.log(self.data('title'));
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+              location.href = self.attr('href');
+            }
+        })
+
+    })
+		
+    </script>
+    <!-- Plugins JS File -->
+    <script src="assets/js/jquery.min.js"></script>
+   <script src="assets/js/bootstrap.bundle.min.js"></script> 
+    <script src="assets/js/jquery.hoverIntent.min.js"></script>
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/superfish.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+
+<!-- molla/checkout.html  22 Nov 2019 09:55:06 GMT -->
+</html>

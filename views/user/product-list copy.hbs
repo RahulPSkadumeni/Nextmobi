@@ -1,0 +1,637 @@
+{{!-- <div class="widget widget-collapsible">
+										<h3 class="widget-title">
+											<a data-toggle="collapse" href="#widget-1" role="button"
+												aria-expanded="true" aria-controls="widget-1">
+												Category
+											</a>
+										</h3><!-- End .widget-title -->
+
+										<div class="collapse show" id="widget-1">
+											<div class="widget-body">
+												<div class="filter-items filter-items-count">
+												<form action="/filter" method="post">
+													{{#each Products}}
+													
+													<div class="filter-item">
+														<div class="custom-control custom-checkbox">
+															<input type="checkbox" class="custom-control-input"
+																id="brand{{this._id}}" name="brand" value="{{this._id}}">
+															<label class="custom-control-label"
+																for="brand{{this._id}}">{{this.name}}</label>
+														</div><!-- End .custom-checkbox -->
+														<span class="item-count"></span>
+													</div><!-- End .filter-item -->
+													
+													{{/each}}
+													<div>
+														<button class="btn btn-success" type="submit">Apply</button>
+													</div>
+												</form>
+												</div><!-- End .filter-items -->
+											</div><!-- End .widget-body -->
+										</div><!-- End .collapse -->
+									</div><!-- End .widget --> --}}
+
+									
+<body>
+    <div class="page-wrapper">
+        <
+
+        <main class="main">
+        	<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        		<div class="container">
+        			<h1 class="page-title">Product List<span>Shop</span></h1>
+        		</div><!-- End .container -->
+        	</div><!-- End .page-header -->
+            
+
+            <div class="page-content">
+                <div class="container">
+                	<div class="row">
+                		<div class="col-lg-9">
+                			<div class="toolbox">
+                				<div class="toolbox-left">
+                					<div class="toolbox-info">
+                						Showing <span>9 of 56</span> Products
+                					</div><!-- End .toolbox-info -->
+                				</div><!-- End .toolbox-left -->
+
+                				<div class="toolbox-right">
+                					<div class="toolbox-sort">
+                						<label for="sortby">Sort by:</label>
+                						<div class="select-custom">
+											<select name="sortby" id="sortby" class="form-control">
+												<option value="popularity" selected="selected">Most Popular</option>
+												<option value="rating">Most Rated</option>
+												<option value="date">Date</option>
+											</select>
+										</div>
+                					</div><!-- End .toolbox-sort -->
+                					<div class="toolbox-layout">
+                						<a href="category-list.html" class="btn-layout active">
+                							<svg width="16" height="10">
+                								<rect x="0" y="0" width="4" height="4" />
+                								<rect x="6" y="0" width="10" height="4" />
+                								<rect x="0" y="6" width="4" height="4" />
+                								<rect x="6" y="6" width="10" height="4" />
+                							</svg>
+                						</a>
+
+                						<a href="category-2cols.html" class="btn-layout">
+                							<svg width="10" height="10">
+                								<rect x="0" y="0" width="4" height="4" />
+                								<rect x="6" y="0" width="4" height="4" />
+                								<rect x="0" y="6" width="4" height="4" />
+                								<rect x="6" y="6" width="4" height="4" />
+                							</svg>
+                						</a>
+
+                						<a href="category.html" class="btn-layout">
+                							<svg width="16" height="10">
+                								<rect x="0" y="0" width="4" height="4" />
+                								<rect x="6" y="0" width="4" height="4" />
+                								<rect x="12" y="0" width="4" height="4" />
+                								<rect x="0" y="6" width="4" height="4" />
+                								<rect x="6" y="6" width="4" height="4" />
+                								<rect x="12" y="6" width="4" height="4" />
+                							</svg>
+                						</a>
+
+                						<a href="category-4cols.html" class="btn-layout">
+                							<svg width="22" height="10">
+                								<rect x="0" y="0" width="4" height="4" />
+                								<rect x="6" y="0" width="4" height="4" />
+                								<rect x="12" y="0" width="4" height="4" />
+                								<rect x="18" y="0" width="4" height="4" />
+                								<rect x="0" y="6" width="4" height="4" />
+                								<rect x="6" y="6" width="4" height="4" />
+                								<rect x="12" y="6" width="4" height="4" />
+                								<rect x="18" y="6" width="4" height="4" />
+                							</svg>
+                						</a>
+                					</div><!-- End .toolbox-layout -->
+                				</div><!-- End .toolbox-right -->
+                			</div><!-- End .toolbox -->
+
+                            <div class="products mb-3">
+                               
+                               {{#each products}}
+                                <div class="product product-list">
+                                    <div class="row">
+                                        <div class="col-6 col-lg-3">
+                                            <figure class="product-media">
+                                                <span class="product-label label-new">{{this.discount}}%</span>
+                                                <a href="/product/{{this._id}}">
+                                                    <img src="/images/product/{{this.img.[0]}}" alt="Product image" class="product-image">
+                                                </a>
+                                            </figure><!-- End .product-media -->
+                                        </div><!-- End .col-sm-6 col-lg-3 -->
+                                       
+                                        <div class="col-6 col-lg-3 order-lg-last">
+                                            <div class="product-list-action">
+                                              <div class="product-price"style="text-decoration:line-through">
+                                                    ₹{{this.price}}
+                                                </div><!-- End .product-price -->
+                                                <div class="product-price" style="color:rgb(50, 160, 50)">
+                                                    ₹{{this.priceAfterDiscount}}
+                                                </div><!-- End .product-price -->
+                                                <div class="product-price" style="color:rgb(50, 160, 50);">
+                                                   {{this.discountOff}}% off
+                                                </div><!-- End .product-price -->
+                                                {{!-- <div class="ratings-container">
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
+                                                    </div><!-- End .ratings -->
+                                                    <span class="ratings-text">( 2 Reviews )</span>
+                                                </div><!-- End .rating-container --> --}}
+
+                                                {{!-- <div class="product-action">
+                                                    <a src="/images/product/{{this.img.[0]}}" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
+                                                    <a href="#" class="btn-product btn-compare" title="Compare"><span>compare</span></a>
+                                                </div><!-- End .product-action --> --}}
+
+                                                 {{#ifstockEquals this.stock 0   }} 
+                                    <a  class=" btn-product " style=" btn-product btn-cart" title="Add to cart"><span style="color:red">Out of stock</span></a>
+                                     {{else}}
+                                      <a href="/add-to-cart/{{../this._id}}" class="added btn-product btn-cart"title="Add to cart"><span>add to cart</span></a>
+                                        {{!-- <a href="/addToWishList/{{this._id}}" class="wish wishlist btn-product btn-quickview" title="Quick view"><span> To wishlist</span></a> --}}
+                                          <a href="#" onclick="addtowishlist('{{../this._id}}')"  class="wish btn-product btn-wishlist  " title="Quick view"><span> To wishlist</span></a>
+                                        {{/ifstockEquals}}
+                                            </div><!-- End .product-list-action -->
+
+                                        </div><!-- End .col-sm-6 col-lg-3 -->
+
+                                        <div class="col-lg-6">
+                                            <div class="product-body product-action-inner">
+                                                <a onclick="addtowishlist('{{../this._id}}')" class="btn-product btn-wishlist" title="Add to wishlist"><span>add to wishlist</span></a>
+                                                <div class="product-cat">
+                                                    <a style="color:rgb(50, 160, 50)" href="#">{{this.category.category}}</a>
+                                                </div><!-- End .product-cat -->
+                                                <h3 class="product-title"><a href="product.html">{{this.name}}</a></h3><!-- End .product-title -->
+
+                                                <div class="product-content">
+                                                    <p>{{this.description}} </p>
+                                                </div><!-- End .product-content -->
+                                                 <div class="product-content">
+                                                    <a style="color:rgb(50, 160, 50)">category Offer{{this.category.offer}}%> </a>
+                                                </div><!-- End .product-content -->
+                                                
+                                                {{!-- <div class="product-nav product-nav-thumbs">
+                                                    <a href="#" class="active">
+                                                        <img src="assets/images/products/product-4-thumb.jpg" alt="product desc">
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="assets/images/products/product-4-2-thumb.jpg" alt="product desc">
+                                                    </a>
+
+                                                    <a href="#">
+                                                        <img src="assets/images/products/product-4-3-thumb.jpg" alt="product desc">
+                                                    </a>
+                                                </div><!-- End .product-nav --> --}}
+                                            </div><!-- End .product-body -->
+                                        </div><!-- End .col-lg-6 -->
+                                    </div><!-- End .row -->
+                                </div><!-- End .product -->
+
+                                {{/each}}
+
+                             
+                            </div><!-- End .products -->
+
+                			<nav aria-label="Page navigation">
+							    <ul class="pagination">
+							        {{!-- <li class="page-item disabled">
+							            <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
+							                <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
+							            </a>
+							        </li>
+							        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+							        <li class="page-item"><a class="page-link" href="#">2</a></li>
+							        <li class="page-item"><a class="page-link" href="#">3</a></li>
+							        <li class="page-item-total">of 6</li>
+							        <li class="page-item">
+							            <a class="page-link page-link-next" href="#" aria-label="Next">
+							                Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
+							            </a>
+							        </li> --}}
+
+
+                       {{#ifEquals '1' results.currentPage }}
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="/productlist/?page={{../previous.page}}" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+                                {{else}}
+                                 <li class="page-item ">
+                                    <a class="page-link" href="/productlist/?page={{../previous.page}}" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+                                {{/ifEquals}}
+									{{#each results.pages}}
+									{{#ifEquals ../currentPage this }}
+
+                                <li class="page-item active"><a class="page-link" href="/productlist/?page={{../this}}">{{../this}}</a></li>
+                                {{else}}
+                                   <li class="page-item active"><a class="page-link" href="/productlist/?page={{../this}}">{{../this}}</a></li>
+                                   {{/ifEquals}}
+									{{/each}}
+									{{#ifEquals results.pageCount results.currentPage }}
+                              
+
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="/productlist/?page={{../next.page}}">Next</a>
+                                </li>
+                                {{else}}
+                                  <li class="page-item">
+                                    <a class="page-link" href="/productlist/?page={{../next.page}}">Next</a>
+                                </li>
+                                {{/ifEquals}}
+							    </ul>
+
+
+
+
+
+
+
+
+
+
+
+							</nav>
+                		</div><!-- End .col-lg-9 -->
+                		<aside class="col-lg-3 order-lg-first">
+                			<div class="sidebar sidebar-shop">
+                				<div class="widget widget-clean">
+                					<label>Filters:</label>
+                					<a href="#" class="sidebar-filter-clear">Clean All</a>
+                				</div><!-- End .widget widget-clean -->
+
+                                <div class="collapse show" id="widget-1">
+											<div class="widget-body">
+												<div class="filter-items filter-items-count">
+												<form action="/filter" method="post">
+													{{#each brands}}
+													
+													<div class="filter-item">
+														<div class="custom-control custom-checkbox">
+															<input type="checkbox" class="custom-control-input"
+																id="brand{{this._id}}" name="brand" value="{{this._id}}">
+															<label class="custom-control-label"
+																for="brand{{this._id}}">{{this.brand}}</label>
+														</div><!-- End .custom-checkbox -->
+														<span class="item-count"></span>
+													</div><!-- End .filter-item -->
+													
+													{{/each}}
+													<div>
+														<button class="btn btn-success" type="submit">Apply</button>
+													</div>
+												</form>
+												</div><!-- End .filter-items -->
+											</div><!-- End .widget-body -->
+										</div><!-- End .collapse -->
+
+                				
+
+        					
+
+
+                			</div><!-- End .sidebar sidebar-shop -->
+                		</aside><!-- End .col-lg-3 -->
+                	</div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .page-content -->
+        </main><!-- End .main -->
+
+       
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+
+    <div class="mobile-menu-container">
+        <div class="mobile-menu-wrapper">
+            <span class="mobile-menu-close"><i class="icon-close"></i></span>
+
+            <form action="#" method="get" class="mobile-search">
+                <label for="mobile-search" class="sr-only">Search</label>
+                <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required>
+                <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+            </form>
+            
+            <nav class="mobile-nav">
+                <ul class="mobile-menu">
+                    <li class="active">
+                        <a href="index.html">Home</a>
+
+                       
+                    </li>
+                    <li>
+                        <a href="category.html">Shop</a>
+                        <ul>
+                            <li><a href="category-list.html">Shop List</a></li>
+                            <li><a href="category-2cols.html">Shop Grid 2 Columns</a></li>
+                            <li><a href="category.html">Shop Grid 3 Columns</a></li>
+                            <li><a href="category-4cols.html">Shop Grid 4 Columns</a></li>
+                            <li><a href="category-boxed.html"><span>Shop Boxed No Sidebar<span class="tip tip-hot">Hot</span></span></a></li>
+                            <li><a href="category-fullwidth.html">Shop Fullwidth No Sidebar</a></li>
+                            <li><a href="product-category-boxed.html">Product Category Boxed</a></li>
+                            <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span class="tip tip-new">New</span></span></a></li>
+                            <li><a href="cart.html">Cart</a></li>
+                            <li><a href="checkout.html">Checkout</a></li>
+                            <li><a href="wishlist.html">Wishlist</a></li>
+                            <li><a href="#">Lookbook</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="product.html" class="sf-with-ul">Product</a>
+                        <ul>
+                            <li><a href="product.html">Default</a></li>
+                            <li><a href="product-centered.html">Centered</a></li>
+                            <li><a href="product-extended.html"><span>Extended Info<span class="tip tip-new">New</span></span></a></li>
+                            <li><a href="product-gallery.html">Gallery</a></li>
+                            <li><a href="product-sticky.html">Sticky Info</a></li>
+                            <li><a href="product-sidebar.html">Boxed With Sidebar</a></li>
+                            <li><a href="product-fullwidth.html">Full Width</a></li>
+                            <li><a href="product-masonry.html">Masonry Sticky Info</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Pages</a>
+                        <ul>
+                            <li>
+                                <a href="about.html">About</a>
+
+                                <ul>
+                                    <li><a href="about.html">About 01</a></li>
+                                    <li><a href="about-2.html">About 02</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="contact.html">Contact</a>
+
+                                <ul>
+                                    <li><a href="contact.html">Contact 01</a></li>
+                                    <li><a href="contact-2.html">Contact 02</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="faq.html">FAQs</a></li>
+                            <li><a href="404.html">Error 404</a></li>
+                            <li><a href="coming-soon.html">Coming Soon</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="blog.html">Blog</a>
+
+                        <ul>
+                            <li><a href="blog.html">Classic</a></li>
+                            <li><a href="blog-listing.html">Listing</a></li>
+                            <li>
+                                <a href="#">Grid</a>
+                                <ul>
+                                    <li><a href="blog-grid-2cols.html">Grid 2 columns</a></li>
+                                    <li><a href="blog-grid-3cols.html">Grid 3 columns</a></li>
+                                    <li><a href="blog-grid-4cols.html">Grid 4 columns</a></li>
+                                    <li><a href="blog-grid-sidebar.html">Grid sidebar</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Masonry</a>
+                                <ul>
+                                    <li><a href="blog-masonry-2cols.html">Masonry 2 columns</a></li>
+                                    <li><a href="blog-masonry-3cols.html">Masonry 3 columns</a></li>
+                                    <li><a href="blog-masonry-4cols.html">Masonry 4 columns</a></li>
+                                    <li><a href="blog-masonry-sidebar.html">Masonry sidebar</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Mask</a>
+                                <ul>
+                                    <li><a href="blog-mask-grid.html">Blog mask grid</a></li>
+                                    <li><a href="blog-mask-masonry.html">Blog mask masonry</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Single Post</a>
+                                <ul>
+                                    <li><a href="single.html">Default with sidebar</a></li>
+                                    <li><a href="single-fullwidth.html">Fullwidth no sidebar</a></li>
+                                    <li><a href="single-fullwidth-sidebar.html">Fullwidth with sidebar</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="elements-list.html">Elements</a>
+                        <ul>
+                            <li><a href="elements-products.html">Products</a></li>
+                            <li><a href="elements-typography.html">Typography</a></li>
+                            <li><a href="elements-titles.html">Titles</a></li>
+                            <li><a href="elements-banners.html">Banners</a></li>
+                            <li><a href="elements-product-category.html">Product Category</a></li>
+                            <li><a href="elements-video-banners.html">Video Banners</a></li>
+                            <li><a href="elements-buttons.html">Buttons</a></li>
+                            <li><a href="elements-accordions.html">Accordions</a></li>
+                            <li><a href="elements-tabs.html">Tabs</a></li>
+                            <li><a href="elements-testimonials.html">Testimonials</a></li>
+                            <li><a href="elements-blog-posts.html">Blog Posts</a></li>
+                            <li><a href="elements-portfolio.html">Portfolio</a></li>
+                            <li><a href="elements-cta.html">Call to Action</a></li>
+                            <li><a href="elements-icon-boxes.html">Icon Boxes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav><!-- End .mobile-nav -->
+
+            <div class="social-icons">
+                <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+            </div><!-- End .social-icons -->
+        </div><!-- End .mobile-menu-wrapper -->
+    </div><!-- End .mobile-menu-container -->
+
+    <!-- Sign in / Register Modal -->
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="icon-close"></i></span>
+                    </button>
+
+                    <div class="form-box">
+                        <div class="form-tab">
+                            <ul class="nav nav-pills nav-fill" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin" role="tab" aria-controls="signin" aria-selected="true">Sign In</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="tab-content-5">
+                                <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label for="singin-email">Username or email address *</label>
+                                            <input type="text" class="form-control" id="singin-email" name="singin-email" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <label for="singin-password">Password *</label>
+                                            <input type="password" class="form-control" id="singin-password" name="singin-password" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-footer">
+                                            <button type="submit" class="btn btn-outline-primary-2">
+                                                <span>LOG IN</span>
+                                                <i class="icon-long-arrow-right"></i>
+                                            </button>
+
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="signin-remember">
+                                                <label class="custom-control-label" for="signin-remember">Remember Me</label>
+                                            </div><!-- End .custom-checkbox -->
+
+                                            <a href="#" class="forgot-link">Forgot Your Password?</a>
+                                        </div><!-- End .form-footer -->
+                                    </form>
+                                    <div class="form-choice">
+                                        <p class="text-center">or sign in with</p>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <a href="#" class="btn btn-login btn-g">
+                                                    <i class="icon-google"></i>
+                                                    Login With Google
+                                                </a>
+                                            </div><!-- End .col-6 -->
+                                            <div class="col-sm-6">
+                                                <a href="#" class="btn btn-login btn-f">
+                                                    <i class="icon-facebook-f"></i>
+                                                    Login With Facebook
+                                                </a>
+                                            </div><!-- End .col-6 -->
+                                        </div><!-- End .row -->
+                                    </div><!-- End .form-choice -->
+                                </div><!-- .End .tab-pane -->
+                                <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label for="register-email">Your email address *</label>
+                                            <input type="email" class="form-control" id="register-email" name="register-email" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <label for="register-password">Password *</label>
+                                            <input type="password" class="form-control" id="register-password" name="register-password" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-footer">
+                                            <button type="submit" class="btn btn-outline-primary-2">
+                                                <span>SIGN UP</span>
+                                                <i class="icon-long-arrow-right"></i>
+                                            </button>
+
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="register-policy" required>
+                                                <label class="custom-control-label" for="register-policy">I agree to the <a href="#">privacy policy</a> *</label>
+                                            </div><!-- End .custom-checkbox -->
+                                        </div><!-- End .form-footer -->
+                                    </form>
+                                    <div class="form-choice">
+                                        <p class="text-center">or sign in with</p>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <a href="#" class="btn btn-login btn-g">
+                                                    <i class="icon-google"></i>
+                                                    Login With Google
+                                                </a>
+                                            </div><!-- End .col-6 -->
+                                            <div class="col-sm-6">
+                                                <a href="#" class="btn btn-login  btn-f">
+                                                    <i class="icon-facebook-f"></i>
+                                                    Login With Facebook
+                                                </a>
+                                            </div><!-- End .col-6 -->
+                                        </div><!-- End .row -->
+                                    </div><!-- End .form-choice -->
+                                </div><!-- .End .tab-pane -->
+                            </div><!-- End .tab-content -->
+                        </div><!-- End .form-tab -->
+                    </div><!-- End .form-box -->
+                </div><!-- End .modal-body -->
+            </div><!-- End .modal-content -->
+        </div><!-- End .modal-dialog -->
+    </div><!-- End .modal -->
+
+<script>
+  
+
+$('.added').on('click',function (e) {
+    e.preventDefault();
+    var self = $(this);
+    console.log(self.data('title'));
+   Swal.fire(
+'Product Added to cart! ',
+'',
+'success'
+).then((result) => {
+        
+           
+          location.href = self.attr('href');
+        
+    })
+
+})
+
+
+ 
+
+ function addtowishlist(id){
+   
+
+
+            $.ajax({
+            
+            url:'/addToWishList',
+            data:{
+               id : id,
+    
+            },
+            method:'post',
+            success:(response)=>{
+              
+                
+             
+   Swal.fire(
+'Product Added to wishlist! ',
+'',
+'success'
+)
+                
+            }
+
+        })
+ }
+
+
+
+</script> 
+</script>
+    <!-- Plugins JS File -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.hoverIntent.min.js"></script>
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/superfish.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/wNumb.js"></script>
+    <script src="assets/js/bootstrap-input-spinner.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/nouislider.min.js"></script>
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+</body>

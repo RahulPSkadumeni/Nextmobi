@@ -1,0 +1,828 @@
+
+    <div class="pagetitle">
+      <h1>Dashboard</h1>
+      <a href="/admin/dashcopy">dashcopy</a>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    
+<div class="row">
+    <!-- Sales Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    {{!-- <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li> --}}
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Sales <span>| Today</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-cart"></i>
+                    </div>
+                    <div class="ps-3 ">
+                      <h5 style='color: green';>₹{{this.dailySalesTotal}}</h5>
+                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+           </div><!-- End Sales Card --> 
+
+           {{!-- //>>>>>>>>>>>>>>>>>>>>>>>>>>> --}}
+
+            <!-- Revenue Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card revenue-card">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    {{!-- <li><a class="dropdown-item" href="#">Today</a></li> --}}
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    {{!-- <li><a class="dropdown-item" href="#">This Year</a></li> --}}
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Revenue <span>| This Month</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-currency-dollar"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6  style='color: green'>₹{{this.monthlyRevenue}}</h6>
+                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+
+            <!-- Customers Card -->
+           <div class="col-xxl-4 col-xl-12">
+
+              <div class="card info-card customers-card">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Customers <span>| This Year</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-people"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>1244</h6>
+                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div><!-- End Customers Card -->
+    </div>
+{{!-- 
+    <section class="section dashboard">
+      <div class="row">
+
+        <!-- Left side columns -->
+        <div class="col-lg-8">
+          <div class="row">
+
+            <!-- Sales Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card sales-card">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Sales <span>| Today</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-cart"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>145</h6>
+                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+           </div><!-- End Sales Card --> 
+            <!-- Revenue Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card revenue-card">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Revenue <span>| This Month</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-currency-dollar"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>$3,264</h6>
+                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- End Revenue Card -->
+
+            <!-- Customers Card -->
+           <div class="col-xxl-4 col-xl-12">
+
+              <div class="card info-card customers-card">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Customers <span>| This Year</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-people"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>1244</h6>
+                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div><!-- End Customers Card -->
+            
+
+            
+
+            <!-- Recent Sales -->
+            
+
+        
+
+      </div>
+    </section> --}}
+
+    
+{{!-- 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js" integrity="sha256-+8RZJua0aEWg+QVVKg4LEzEEm/8RFez5Tb4JBNiV5xA=" crossorigin="anonymous"></script>  
+   --}}
+
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{{!-- //LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL?? --}}
+  <div class="col-12">
+               <div class="card recent-sales overflow-auto">
+                    <div class="chartBox">
+                        <div class="filter">
+                            
+                        </div>
+
+                         <button class="btn btn-primary btn-sm" onclick="weeklyReport()">daily</button>
+                    <button class="btn btn-primary btn-sm" onclick="monthlyReport()">This Month</button>
+                    <button class="btn btn-primary btn-sm" onclick="yearlyReport()">This Year</button>
+
+                          
+                        <canvas id="sales-chart"></canvas>
+                        
+                        
+
+
+                    </div>
+                </div>
+            </div>
+     {{!-- //LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL??        --}}
+
+            
+          
+
+
+          <div class="rows">
+            
+          </div>
+          <div class="card-body col-12">
+            <h5 class="card-title text-center mb-3">payment wise chart</h5>
+
+
+          <canvas id="payment-chart"></canvas>
+          
+            <script>
+
+
+              const data = {
+                labels: ['COD', 'Razorpay', 'paypal','wallet'],
+                datasets: [{
+                  label: 'Total Sale Amount',
+                  
+                  data: [{{ paymentDetails.percentageCOD }}, {{ paymentDetails.percentageRazorpay }}, {{paymentDetails.percentagePaypal }},{{ paymentDetails.percentageWallet}}],
+              backgroundColor: [
+                'rgb(103 119 239)',
+                'rgb(102 187 106)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 99, 132)'
+              ]
+                    }]
+                  };
+              // </block:setup>
+
+              // <block:config:0>
+              const config = {
+                type: 'doughnut',
+                data: data,
+                options: {
+                  aspectRatio: 4,
+                  responsive: true
+                }
+              };
+
+
+                paymentChart = new Chart(document.getElementById('payment-chart'), config)
+                
+     
+            </script>
+
+            </div>
+            </div>
+
+
+
+
+            <div class="container">
+                            <div class="row">
+                                <div class="col-10">
+                                    {{!-- <button class="btn btn-success" onclick="generatePDF()">Generate PDF</button> --}}
+                                </div>
+                                {{!-- <div class="col-2">
+                                    
+                                        <a class="btn btn-primary dropdown-toggle" href="#" role="button"
+                                            id="dropdownMenuLink" data-mdb-toggle="dropdown" aria-expanded="false">
+                                            Sales PDF Report
+                                        </a>
+
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <li><a onclick="weeklyReportPDF()" class="dropdown-item" href="#">weekly
+                                                    Report</a></li>
+                                            <li><a onclick="monthlyReportPDF()" class="dropdown-item" href="#">monthly
+                                                    Report</a></li>
+                                            <li><a onclick="yearlyRe̥̥portPDF()" class="dropdown-item" href="#">yearly
+                                                    Report</a></li>
+                                        </ul>
+                                        <ul>
+                                             <li><a onclick="weeklyReportPDF()" class="dropdown-item" href="#">weekly
+                                                    Report</a></li>
+                                            <li><a onclick="monthlyReportPDF()" class="dropdown-item" href="#">monthly
+                                                    Report</a></li>
+                                            <li><a onclick="yearlyRe̥̥portPDF()" class="dropdown-item" href="#">yearly
+                                                    Report</a></li>
+                                        </ul>
+
+
+                                    </div> --}}
+                                </div>
+                            </div>
+                        </div>
+
+
+
+            
+            <div class="card-body">
+            {{!-- <h5 class="card-title text-center mb-3">category wise sales</h5> --}}
+
+
+          <canvas id="category-wise-chart"></canvas>
+            <script>
+
+            function hello(){
+                            const data = {
+                labels: ['men', 'women'],
+                datasets: [{
+                  label: 'Total sale count',
+                  data: [{{categoryWiseSales.men}}, {{categoryWiseSales.women}}],
+              backgroundColor: [
+                'rgb(103 119 239)',
+                'rgb(102 187 106)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 99, 132)'
+              ]
+                    }]
+                  };
+              // </block:setup>
+
+              // <block:config:0>
+              const config = {
+                type: 'pie',
+                data: data,
+                options: {
+                  aspectRatio: 3,
+                  responsive: true
+                }
+              };
+
+
+                categoryWiseChart = new Chart(document.getElementById('category-wise-chart'), config)
+
+            }
+
+                
+     
+            </script>
+
+            </div>
+            </div>
+                        
+                         {{!-- <canvas id="sales-chart"></canvas> --}}
+  {{!-- <canvas id="myChart" width="400" height="400" style="background-color:#f6f6f ;"><h1>nasbabsi</h1>haiiiiii</canvas>
+  <canvas id="sales" width="400" height="400" style="background-color:#f6f6f ;"><h1>nasbabsi</h1>haiiiiii</canvas>
+   --}}
+<script>
+
+var myChart;
+                var myChart2;
+                var myChart3;
+                var chart1;
+                var chart2;
+                var chart3;
+                window.onload = (event) => {
+                    weeklyReport()
+                };
+/* <------------------------------------------------------Weekly report---------------------------------------------------------------> */
+
+
+
+                function weeklyReport() {
+
+                    chart1 = true
+
+
+                    const data = {
+                        labels: [{{#each dailySales }}'{{this._id}}',{{/each}}],
+                        datasets: [{
+                            label: 'Total Sale Amount',
+                            data: [{{#each dailySales }}'{{this.total}}',{{/each}}],
+                backgroundColor: [
+                    'rgba(255, 26, 104, 0.9)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(0, 0, 0, 0.2)'
+                ],
+                    borderColor: [
+                        'rgba(255, 26, 104, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(0, 0, 0, 1)'
+                    ],
+                        borderWidth: 1
+        }]
+      };
+
+
+                // </block:setup>
+
+                // <block:config:0>
+                const config = {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        aspectRatio: 3,
+                        responsive: true
+                    }
+                };
+
+                if (chart2) {
+                    myChart2.destroy()
+                }
+                if (chart3) {
+                    myChart3.destroy()
+                }
+
+                myChart = new Chart(document.getElementById('sales-chart'), config)
+      
+       
+       
+    }
+
+                /* <---------------------------------------------------Weekly report ends------------------------------------------------------------> */
+
+
+
+
+                /* <-----------------------------------------------------Monthly report---------------------------------------------------------------> */
+
+
+                function monthlyReport() {
+
+                    chart2 = true
+
+                    const data = {
+                        labels: [{{#each monthlySales }}'{{_id}}', {{/each}}],
+                        datasets: [{
+                            label: 'Total Sale Amount',
+                            data: [{{#each monthlySales }}'{{total}}', {{/each}}],
+                backgroundColor: [
+                    'rgb(103 119 239)',
+                    'rgb(102 187 106)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 99, 132)'
+                ]
+        }]
+      };
+                // </block:setup>
+
+                // <block:config:0>
+                const config = {
+                    type: 'polarArea',
+                    data: data,
+                    options: {
+                        aspectRatio: 3,
+                        responsive: true
+                    }
+                };
+
+                if (chart1) {
+                    myChart.destroy()
+                }
+                if (chart3) {
+                    myChart3.destroy()
+                }
+
+                myChart2 = new Chart(document.getElementById('sales-chart'), config)
+                
+     
+    }
+
+
+                /* <---------------------------------------------------Monthly report ends------------------------------------------------------------> */
+
+
+
+
+                function yearlyReport() {
+
+                    chart3 = true
+
+                    const data = {
+                        labels: [{{#each yearlySales }}'{{_id}}', {{/each}}],
+                        datasets: [{
+                            label: 'Total Sale Amount',
+                            data: [{{#each yearlySales }}'{{total}}', {{/each}}],
+                backgroundColor: [
+                    'rgb(103 119 239)',
+                    'rgb(102 187 106)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 99, 132)'
+                ]
+        }]
+      };
+                // </block:setup>
+
+                // <block:config:0>
+                const config = {
+                    type: "doughnut",
+                    data: data,
+                    options: {
+                        aspectRatio: 3,
+                        responsive: true
+                    }
+                };
+                if (chart1) {
+                    myChart.destroy()
+                }
+                if (chart2) {
+                    myChart2.destroy()
+                }
+
+                myChart3 = new Chart(document.getElementById('sales-chart'), config)
+    }
+
+         
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+            <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+            <style>
+                th,
+                td {
+                    text - align: center;
+                    border: 1 px solid black;
+                    border - collapse: collapse;
+                }
+            </style>
+            <center>
+
+                {{!-- <table class="table mt-5" id="weekly-table">
+                    <h1>Weekly Report</h1>
+                    <thead>
+                        <tr>
+
+                            <th>order_id</th>
+                            <th>date</th>
+                            <th>total</th>
+                            <th>status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each weeklyReport}}
+                        <tr>
+
+                            <td>{{this._id}}</td>
+                            <td>{{this.date}}</td>
+                            <td>{{this.totalAmount}}</td>
+                            <td>{{this.status}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                <br />
+
+                <table  class="table mt-5" id="monthly-table">
+                    <h1>Monthly Report</h1>
+                    <thead>
+                        <tr>
+
+                            <th>order_id</th>
+                            <th>date</th>
+                            <th>total</th>
+                            <th>status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each monthlyReport}}
+                        <tr>
+
+                            <td>{{_id}}</td>
+                            <td>{{this.date}}</td>
+                            <td>{{this.totalAmount}}</td>
+                            <td>{{this.status}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                
+                <br>
+
+                <table  class="table mt-5" id="yearly-table">
+                    <h1>Yearly Report</h1>
+                    <thead>
+                        <tr>
+                            <th>order_id</th>
+                            <th>date</th>
+                            <th>total</th>
+                            <th>status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each yearlyReport}}
+                        <tr>
+
+                            <td>{{_id}}</td>
+                            <td>{{this.date}}</td>
+                            <td>{{this.totalAmount}}</td>
+                            <td>{{this.status}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table> --}}
+
+            </center>
+            <script type="text/javascript">
+                
+                function weeklyReportPDF() {
+                    var doc = new jsPDF('p', 'pt', 'letter');
+                    var htmlstring = '';
+                    var tempVarToCheckPageHeight = 0;
+                    var pageHeight = 0;
+                    pageHeight = doc.internal.pageSize.height;
+                    specialElementHandlers = {
+                        // element with id of "bypass" - jQuery style selector  
+                        '#bypassme': function (element, renderer) {
+                            // true = "handled elsewhere, bypass text extraction"  
+                            return true
+                        }
+                    };
+                    margins = {
+                        top: 150,
+                        bottom: 60,
+                        left: 40,
+                        right: 40,
+                        width: 600
+                    };
+                    var y = 20;
+                    doc.setLineWidth(2);
+                    doc.text(200, y = y + 30, "Weekly Sales Report");
+                    doc.autoTable({
+                        html: '#weekly-table',
+                        startY: 70,
+                        theme: 'grid',
+                        columnStyles: {
+                            0: {
+                                cellWidth: 180,
+                            },
+                            1: {
+                                cellWidth: 80,
+                            },
+                            2: {
+                                cellWidth: 80,
+                            },
+                            {{!-- 3: {
+                                cellWidth: 80,
+                            } --}}
+                        },
+                        styles: {
+                            minCellHeight: 40
+                        }
+                    })
+                    doc.save('sales-weekly-report.pdf');
+                } 
+
+
+                function monthlyReportPDF() {
+                    var doc = new jsPDF('p', 'pt', 'letter');
+                    var htmlstring = '';
+                    var tempVarToCheckPageHeight = 0;
+                    var pageHeight = 0;
+                    pageHeight = doc.internal.pageSize.height;
+                    specialElementHandlers = {
+                        // element with id of "bypass" - jQuery style selector  
+                        '#bypassme': function (element, renderer) {
+                            // true = "handled elsewhere, bypass text extraction"  
+                            return true
+                        }
+                    };
+                    margins = {
+                        top: 150,
+                        bottom: 60,
+                        left: 40,
+                        right: 40,
+                        width: 600
+                    };
+                    var y = 20;
+                    doc.setLineWidth(2);
+                    doc.text(200, y = y + 30, "Monthly Sales Report");
+                    doc.autoTable({
+                        html: '#monthly-table',
+                        startY: 70,
+                        theme: 'grid',
+                        columnStyles: {
+                            0: {
+                                cellWidth: 180,
+                            },
+                            1: {
+                                cellWidth: 80,
+                            },
+                            2: {
+                                cellWidth: 80,
+                            },
+                            {{!-- 3: {
+                                cellWidth: 80,
+                            } --}}
+                        },
+                        styles: {
+                            minCellHeight: 40
+                        }
+                    })
+                    doc.save('sales-monthly-report.pdf');
+                } 
+
+
+                function yearlyReportPDF() {
+                    var doc = new jsPDF('p', 'pt', 'letter');
+                    var htmlstring = '';
+                    var tempVarToCheckPageHeight = 0;
+                    var pageHeight = 0;
+                    pageHeight = doc.internal.pageSize.height;
+                    specialElementHandlers = {
+                        // element with id of "bypass" - jQuery style selector  
+                        '#bypassme': function (element, renderer) {
+                            // true = "handled elsewhere, bypass text extraction"  
+                            return true
+                        }
+                    };
+                    margins = {
+                        top: 150,
+                        bottom: 60,
+                        left: 40,
+                        right: 40,
+                        width: 600
+                    };
+                    var y = 20;
+                    doc.setLineWidth(2);
+                    doc.text(200, y = y + 30, "Yearly Sales Report");
+                    doc.autoTable({
+                        html: '#yearly-table',
+                        startY: 70,
+                        theme: 'grid',
+                        columnStyles: {
+                            0: {
+                                cellWidth: 180,
+                            },
+                            1: {
+                                cellWidth: 80,
+                            },
+                            2: {
+                                cellWidth: 80,
+                            },
+                            {{!-- 3: {
+                                cellWidth: 80,
+                            } --}}
+                        },
+                        styles: {
+                            minCellHeight: 40
+                        }
+                    })
+                    doc.save('sales-yearly-report.pdf');
+                } 
+            </script>
+
+

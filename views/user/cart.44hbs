@@ -1,0 +1,94 @@
+<body>
+    
+<div class="page-content">
+            	<div class="cart">
+	                <div class="container">
+	                	<div class="row">
+	                		<div class="col-lg-9">
+	                			<table class="table table-cart table-mobile">
+									<thead>
+										<tr>
+                                            <th>No</th>
+											<th>item</th>
+											<th>title</th>
+											
+                                            <th>Price</th>
+                                            <th>Quantity</th>   
+											{{!-- <th>Total</th>
+											<th></th> --}}
+										</tr>
+
+									</thead>
+                                
+{{!-- -------------------------------------------------------- --}}
+                                {{#each products}}
+								
+<tr>
+    <td></td>
+    
+     <td><img style="width: 70px;height:78px" src="/product-image/{{this.product._id}}.jpg"  alt=""></td>
+    <td>{{this.product.name}}</td>
+     <td class="total-col">₹ {{this.product.price}}</td>
+   
+     <td>
+        {{!-- <button class="cart-item-count mr-" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',1)">-</button>{{this.product.quantity}}<button class="cart-item-count ml-3" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',1)">+</button> --}}
+
+       
+        <button class="m-2 " style="font-size: 1.5rem;" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',-1)">-</button>
+                                                    <span id="{{this.product._id}}" style="font-size: 1.5rem;">{{this.quantity}}</span>
+        <button class="m-2 " style="font-size: 1.5rem;" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',1)">+</button>
+    
+    
+    </td>
+    <td>{{this.price}}</td>
+   
+
+                                                            
+     <td>
+        <a href=''class="btn btn-danger">Remove</a>
+    </td>
+</tr>
+{{/each}}
+
+    {{!-- 									
+                                        </tbody> --}}
+                                    
+  {{!-- -------------------------------------------------------- --}}
+								</table><!-- End .table table-wishlist -->
+
+</body>
+<script>
+    var table = document.getElementsByTagName('table')[0],
+        rows = table.getElementsByTagName('tr'),
+        text = 'textContent' in document ? 'textContent' : 'innerText';
+
+    for (var i = 1, len = rows.length; i < len; i++) {
+        rows[i].children[0][text] = i;
+    }
+
+</script>
+<script>
+    function changeQuantity(cartId,productId,Count){
+        $.ajax({
+            url:'/change-product-quantity'
+            data:{
+                user:userId,
+                cart:cartId,
+                product:productId,
+                count:count,
+                quantity:quantity
+            },
+            method:"post",
+            success:(response)=>{
+                if(response.status){
+                console.log(response)
+
+                alert(response)
+                }
+                
+
+            }
+
+        })
+    }
+</script>

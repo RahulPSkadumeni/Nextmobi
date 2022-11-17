@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>product Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+  <body>
+
+
+    {{!-- ////////////////banner///////// --}}
+<main class="main">
+
+      <div class="intro-slider-container">
+                <div class="intro-slider owl-carousel owl-simple owl-nav-inside" data-toggle="owl" data-owl-options='{
+                        "nav": false,
+                        "responsive": {
+                            "992": {
+                                "nav": true
+                            }
+                        }
+                    }'>
+                    <div class="intro-slide"  style="background-image: url('/images/slider/5_ultra_1440.jpg');">
+                        <div class="container intro-content">
+                            <div class="row">
+                                <div class="col-auto offset-lg-3 intro-col">
+                                    <h3 class="intro-subtitle">Trade-In Offer</h3><!-- End .h3 intro-subtitle -->
+                                    <h1 class="intro-title text-white">Galaxy S22 | S22+ <br>Latest Model
+                                        <span>
+                                            <sup class="font-weight-light">from</sup>
+                                            <span class="text-primary">₹52,999.00<sup></sup></span>
+                                        </span>
+                                    </h1><!-- End .intro-title -->
+
+                                    <a href="category.html" class="btn btn-outline-primary-2">
+                                        <span class='text-white' >Shop Now</span>
+                                        <i class="icon-long-arrow-right"></i>
+                                    </a>
+                                </div><!-- End .col-auto offset-lg-3 -->
+                            </div><!-- End .row -->
+                        </div><!-- End .container intro-content -->
+                    </div><!-- End .intro-slide -->
+
+                    <div class="intro-slide" style="background-image: url('/images/slider/6_ultra_1440.jpg');">
+                        <div class="container intro-content">
+                            <div class="row">
+                                <div class="col-auto offset-lg-3 intro-col">
+                                    <h3 class="intro-subtitle">The new form of creative expression
+</h3><!-- End .h3 intro-subtitle -->
+                                    <h1 class="intro-title text-white">Make nights epic with Nightography <br>
+                                    <h1 class="intro-title text-white">Galaxy S22｜S22+
+ <br>
+                                        <span>
+                                            <sup class="font-weight-light line-through"></sup>
+                                            <span class="text-primary">₹56,999.00<sup></sup></span>
+                                        </span>
+                                    </h1><!-- End .intro-title -->
+
+                                    <a href="category.html" class="btn btn-outline-white-2">
+                                        <span class="text-white">Shop Now</span>
+                                        <i class="icon-long-arrow-right"></i>
+                                    </a>
+                                </div><!-- End .col-auto offset-lg-3 -->
+                            </div><!-- End .row -->
+                        </div><!-- End .container intro-content -->
+                    </div><!-- End .intro-slide -->
+
+                    <div class="intro-slide" style="background-image: url('/images/slider/rn11pro5g.jpg');">
+                        <div class="container intro-content">
+                            <div class="row">
+                                <div class="col-auto offset-lg-3 intro-col">
+                                    <h3 class="intro-subtitle"></h3><!-- End .h3 intro-subtitle -->
+                                    <h1 class="intro-title"><br>
+                                        <span>
+                                            <sup class="font-weight-light line-through"></sup>
+                                            <span class="text-primary"><sup></sup></span>
+                                        </span>
+                                    </h1><!-- End .intro-title -->
+
+                                    <a href="category.html" class="btn btn-outline-primary-2">
+                                        <span>Shop Now</span>
+                                        <i class="icon-long-arrow-right"></i>
+                                    </a>
+                                </div><!-- End .col-auto offset-lg-3 -->
+                            </div><!-- End .row -->
+                        </div><!-- End .container intro-content -->
+                    </div><!-- End .intro-slide -->
+                </div><!-- End .owl-carousel owl-simple -->
+                
+
+                <span class="slider-loader"></span><!-- End .slider-loader -->
+            </div><!-- End .intro-slider-container -->
+
+
+
+</main>
+{{!-- ///////////////banner end////////////// --}}
+{{!-- 
+   
+</nav> --}}
+  <body>
+    
+
+    {{!-- //product cart 1// --}}
+    {{!-- <section>
+        <div class="container mt-4 p">
+        <div class="row">
+            {{#each products}}
+           <div class="card" style="width: 18rem; ">
+  <img src="{{this.image}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{this.name}}</h5>
+    <p class="card-text">{{this.category}}</p>
+     <p class="card-text">{{this.description}}</p>
+    <a href="#" class="btn btn-primary">Add to carte</a>
+  </div>
+</div>
+           {{/each}}
+                 </div>
+                 </div>
+    </section> --}}
+
+    
+
+    {{!-- <a href="/orders">histoy</a>
+    <a href="/Address">address</a>
+     
+
+    <a href="/userprofile/:id">profile</a> --}}
+  <section>
+    <div class="container  mt-4">
+        <div class="row">
+       <!-- product1 -->
+        {{#each products}}
+       <div class="product product-2 mt-4 ml-4 " style="width: 27rem"," height:27rem ">
+                                <figure class="product-media">
+                                    {{!-- <span class="product-label label-circle label-top">Top</span> --}}
+                                    <a href="/product/{{this._id}}">
+                                      {{!-- <a  class="btn" href="/product2/{{this._id}}">p</a> --}}
+                                     <span class="product-label label-new"> {{this.discount}}% off</span>
+                                        <img src="/images/product/{{this.img.[0]}}" alt="Product image" class="product-image">
+                                    </a>
+
+                                    
+
+                                    <div class="product-action-vertical">
+                                        {{!-- <a  class="btn-product-icon btn-wishlist"  onclick="addToWishList('{{this._id}}"  title="Add to wishlist"></a> --}}
+                                    </div><!-- End .product-action -->
+
+                                    <div class="product-action">
+                                  {{#ifstockEquals this.stock 0   }} 
+                                    <a  class=" btn-product " style="color:red" title="Add to cart"><span style="color:red">Out of stock</span></a>
+                                     {{else}}
+
+                                        <a href="/add-to-cart/{{../this._id}}" class="added btn-product btn-cart"title="Add to cart"><span>add to cart</span></a>
+                                        {{!-- <a href="/addToWishList/{{this._id}}" class="wish wishlist btn-product btn-quickview" title="Quick view"><span> To wishlist</span></a> --}}
+                                          <a href="#" onclick="addtowishlist('{{../this._id}}')"  class="wish wishlist btn-product " title="Quick view"><span> To wishlist</span></a>
+                                         
+                                        {{/ifstockEquals}}
+                                    </div><!-- End .product-action -->
+                                </figure><!-- End .product-media -->
+
+                                <div class="product-body">
+                                    <div class="product-cat">
+                                        <a href="#">{{this.category.category}}</a>
+
+                                    </div><!-- End .product-cat -->
+
+                                     <h5 style="color:#F47458" href="#">{{this.brand.brand}}</h5>
+                                    <h3 class="product-title"><a href="/product">{{this.name}}</a></h3><!-- End .product-title -->
+                                    <div class="product-price" >
+                                        <div>
+                                <div>
+                                    <span style="text-decoration:line-through">₹{{this.price}} </span>
+                                   
+
+                                </div> 
+                                <div>
+                                      <span  style="color:rgb(50, 160, 50)"> ₹{{this.priceAfterDiscount}}</span>
+
+                                </div> <span style="color:rgb(50, 160, 50);">{{this.discountOff}}% off</span> 
+                                            
+                                        </div>
+                                    </div><!-- End .product-price -->
+                                    <div class="ratings-container">
+                                        <div class="ratings">
+                                            <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
+                                            {{!-- <div>
+                                                  <a  href="#">{{this.category.offer}} % off</a>
+                                            </div> --}}
+                                        </div><!-- End .ratings -->
+                                        {{!-- <span class="ratings-text">( 4 Reviews )</span> --}}
+                                    </div><!-- End .rating-container -->
+                                </div><!-- End .product-body -->
+                            </div>
+                            <!-- End .product -->
+                            {{/each}}
+                 </div>
+                 {{!-- <a href="image">image</a> --}}
+                 </div>
+
+ {{!-- <ul class="pagination justify-content-center">
+
+
+                                {{#ifEquals '1' results.currentPage }}
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="/?page={{../previous.page}}" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+                                {{else}}
+                                 <li class="page-item ">
+                                    <a class="page-link" href="/?page={{../previous.page}}" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+                                {{/ifEquals}}
+									{{#each results.pages}}
+									{{#ifEquals ../currentPage this }}
+
+                                <li class="page-item active"><a class="page-link" href="/?page={{../this}}">{{../this}}</a></li>
+                                {{else}}
+                                   <li class="page-item active"><a class="page-link" href="/?page={{../this}}">{{../this}}</a></li>
+                                   {{/ifEquals}}
+									{{/each}}
+									{{#ifEquals results.pageCount results.currentPage }}
+                              
+
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="/?page={{../next.page}}">Next</a>
+                                </li>
+                                {{else}}
+                                  <li class="page-item">
+                                    <a class="page-link" href="/?page={{../next.page}}">Next</a>
+                                </li>
+                                {{/ifEquals}}
+
+
+
+
+
+
+
+							</ul> --}}
+
+{{!-- <a href="/dashboard" style="button">sucess</a> --}}
+
+  </section>
+
+
+
+
+
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="jquery-ui-datepicker/jquery-ui.min.js"></script>
+    <!-- https://jqueryui.com/download/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script>
+      $(function() {
+        $("#expire_date").datepicker();
+      });
+
+
+
+
+
+$('.added').on('click',function (e) {
+    e.preventDefault();
+    var self = $(this);
+    console.log(self.data('title'));
+   Swal.fire(
+'Product Added to cart! ',
+'',
+'success'
+).then((result) => {
+        
+           
+          location.href = self.attr('href');
+        
+    })
+
+})
+
+
+ 
+
+ function addtowishlist(id){
+   
+
+
+            $.ajax({
+            
+            url:'/addToWishList',
+            data:{
+               id : id,
+    
+            },
+            method:'post',
+            success:(response)=>{
+              
+                
+             
+   Swal.fire(
+'Product Added to wishlist! ',
+'',
+'success'
+)
+                
+            }
+
+        })
+ }
+
+
+
+</script> 
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+
+    <script src="/javascripts/script.js"></script>
+  
+  </body>
+</html>

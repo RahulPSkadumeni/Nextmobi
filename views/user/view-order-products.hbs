@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link rel="stylesheet" href="/stylesheets/styleable.css">
+
+<!-- molla/cart.html  22 Nov 2019 09:55:06 GMT -->
+
+    <div class="page-wrapper">
+
+<body>
+    <div class="page-wrapper">
+        <main class="main">
+        	<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        		<div class="container">
+        			<h1 class="page-title">Order History<span></span></h1>
+        		</div><!-- End .container -->
+        	</div><!-- End .page-header -->
+            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Order History</li>
+                    </ol>
+                </div><!-- End .container -->
+            </nav><!-- End .breadcrumb-nav -->
+
+            <div class=" container">
+            	<div class="">
+	                  <div class="">
+	                	<div class="row">
+	                	<div class="col-md-1"></div>		<div class="col-md-10">
+					<h3 class="h5 mb-4 text-center"></h3>
+					<div class="table-wrap">
+						<table class="table mt-5">
+						  <thead class="thead-primary">
+										<tr>
+                                            <th>No</th>
+											<th>Item</th>
+											<th>Brand</th>
+											
+                                            <th>Price</th>
+                                            <th>Quantity</th>   
+											<th>Image</th>
+											<th></th>
+										</tr>
+
+                                         {{#each products}}
+<tr>
+    <td></td>
+     
+    <td><a href="/product">{{this.product.name}}</a></td>
+   
+   
+    <td> <a class="product-price">₹{{this.product.price}}</a><!-- End .product-price --></td>
+    <td> <a href="#">{{products.brand}}</a></td>
+ 
+     <td>   <a href="#">Quantity: {{this.quantity}}</a></td>
+    
+                                       <td><img src="/images/product/{{product.img.[0]}}" alt="Product image" class="product-image" style="width: 100px;height:100px;"></td> 
+                                    
+    
+
+
+</tr>
+
+{{/each}}
+									</thead>
+                                
+  
+ 
+                          
+  
+								</table><!-- End .table table-wishlist -->
+                                    
+
+          {{#IfDelivery orderStatus  'delivered' }}                          
+<a href="/user/invoice/{{../orderId}}"><h4>Download invoice </h4></a>
+	      {{/IfDelivery}}          		
+                          
+                        
+</body>
+
+
+{{!-- {{!-- -----script foer table no - in first td-}} --}}
+<script>
+    //var table = document.getElementsByTagName('table')[0],
+  //      rows = table.getElementsByTagName('tr'),
+    //    text = 'textContent' in document ? 'textContent' : 'innerText';
+
+  //  for (var i = 1, len = rows.length; i <script len; i++) {
+  //      rows[i].children[0][text] = i;
+   // }
+
+
+
+
+    function qty(count){
+        alert(count)
+         alert('==working==')
+        
+        
+    }
+
+
+    function changeQuantity(cartId,productId,userId,count){
+        //alert('==working==')
+        let quantity = document.getElementById(productId).innerHTML
+        $.ajax({
+            
+            url:'/change-product-quantity',
+            data:{
+                user:userId,
+                cart:cartId,
+                product:productId,
+                count:count,
+                quantity:quantity
+                
+            },
+            method:'post',
+            success:(response)=>{
+               // alert('hi')
+                
+                if(response.disable){
+                    document.getElementById('minus-button' + productId).disable = true
+                }else{
+                    let qty = parseInt(document.getElementById(productId).innerHTML) + count
+                   document.getElementById(productId).innerHTML = qty
+                   
+                }
+                
+                
+            }
+
+        })
+    }
+
+//=================================sl no================
+
+   var table = document.getElementsByTagName('table')[0],
+        rows = table.getElementsByTagName('tr'),
+        text = 'textContent' in document ? 'textContent' : 'innerText';
+
+    for (var i = 1, len = rows.length; i < len; i++) {
+        rows[i].children[0][text] = i;
+    }
+
+
+</script>
+<script src="/pub"></script>
+
+
+</html>

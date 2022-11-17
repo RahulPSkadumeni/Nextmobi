@@ -1,0 +1,70 @@
+<section>
+    <div class="container">
+        <div class="container">
+  <div class="row">
+    <div></div>
+    {{!-- <div>
+         <a type="button" href="/admin/add-products" class="btn btn-success ml-5">Add Products</a>
+
+    </div>
+     --}}
+    <div class="col-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Eamil</th>
+            <th scope="col">Phone</th>
+            {{!-- <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            
+            <th scope="col">Image</th> --}}
+            <th scope="col">Control</th>
+            
+
+          </tr>
+        </thead>
+       
+           
+        <tbody>
+            <div class="container">
+                
+            </div>
+            
+             {{#each userData}}
+          <tr>
+            <td scope="row"></td>
+            <td>{{this.name}}e</td>
+            <td>{{this.email}}</td>
+           
+            <td>{{this.phone}}</td>
+             <td>
+        {{#if this.acessStatus}}
+        
+               <a  type="button" href="/admin/block-user/{{this._id}}" class="btn btn-danger" onclick="return confirm('Are you want to block {{this.name}} ?')" onclick="return confirm(are you sure)">Block</></a>
+      
+            {{else}}
+          
+             <a  type="button" href="/admin/unblock-user/{{this._id}}" class="btn btn-primary" onclick="return confirm('Are you want to Un-Block This User {{this.name}} ?')" onclick="return confirm(are you sure)">Un-block</onclick=></a>
+          
+            {{/if}}
+          </tr>
+           {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+    </div>
+</section>
+<script>
+    var table = document.getElementsByTagName('table')[0],
+        rows = table.getElementsByTagName('tr'),
+        text = 'textContent' in document ? 'textContent' : 'innerText';
+
+    for (var i = 1, len = rows.length; i < len; i++) {
+        rows[i].children[0][text] = i;
+    }
+
+</script>

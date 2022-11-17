@@ -1,0 +1,481 @@
+
+{{!-- 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js" integrity="sha256-+8RZJua0aEWg+QVVKg4LEzEEm/8RFez5Tb4JBNiV5xA=" crossorigin="anonymous"></script>  
+   --}}
+
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <div class="col-10">
+                <div class="chartCard">
+                    <div class="chartBox">
+                        <div class="filter">
+                            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                <li class="dropdown-header text-start">
+                                    <h6>Filter</h6>
+                                </li>
+
+                                <li><a onclick="weeklyReport()" class="dropdown-item" href="#">This week</a></li>
+                                <li><a onclick="monthlyReport()" class="dropdown-item" href="#">This Month</a></li>
+                                <li><a onclick="yearlyReport()" class="dropdown-item" href="#">This Year</a></li>
+                            </ul>
+                        </div>
+                        <canvas id="sales-chart"></canvas>
+                        
+                        
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container">
+                            <div class="row">
+                                <div class="col-10">
+                                    <button class="btn btn-success" onclick="generatePDF()">Generate PDF</button>
+                                </div>
+                                <div class="col-2">
+                                    {{!-- <div class="dropdown"> --}}
+                                        <a class="btn btn-primary dropdown-toggle" href="#" role="button"
+                                            id="dropdownMenuLink" data-mdb-toggle="dropdown" aria-expanded="false">
+                                            Sales PDF Report
+                                        </a>
+
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <li><a onclick="weeklyReportPDF()" class="dropdown-item" href="#">weekly
+                                                    Report</a></li>
+                                            <li><a onclick="monthlyReportPDF()" class="dropdown-item" href="#">monthly
+                                                    Report</a></li>
+                                            <li><a onclick="yearlyRe̥̥portPDF()" class="dropdown-item" href="#">yearly
+                                                    Report</a></li>
+                                        </ul>
+                                        <ul>
+                                             <li><a onclick="weeklyReportPDF()" class="dropdown-item" href="#">weekly
+                                                    Report</a></li>
+                                            <li><a onclick="monthlyReportPDF()" class="dropdown-item" href="#">monthly
+                                                    Report</a></li>
+                                            <li><a onclick="yearlyRe̥̥portPDF()" class="dropdown-item" href="#">yearly
+                                                    Report</a></li>
+                                        </ul>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                         {{!-- <canvas id="sales-chart"></canvas> --}}
+  {{!-- <canvas id="myChart" width="400" height="400" style="background-color:#f6f6f ;"><h1>nasbabsi</h1>haiiiiii</canvas>
+  <canvas id="sales" width="400" height="400" style="background-color:#f6f6f ;"><h1>nasbabsi</h1>haiiiiii</canvas>
+   --}}
+<script>
+
+var myChart;
+                var myChart2;
+                var myChart3;
+                var chart1;
+                var chart2;
+                var chart3;
+                window.onload = (event) => {
+                    weeklyReport()
+                };
+/* <------------------------------------------------------Weekly report---------------------------------------------------------------> */
+
+
+
+                function weeklyReport() {
+
+                    chart1 = true
+
+
+                    const data = {
+                        labels: [{{#each dailySales }}'{{this._id}}',{{/each}}],
+                        datasets: [{
+                            label: 'Total Sale Amount',
+                            data: [{{#each dailySales }}'{{this.total}}',{{/each}}],
+                backgroundColor: [
+                    'rgba(255, 26, 104, 0.9)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(0, 0, 0, 0.2)'
+                ],
+                    borderColor: [
+                        'rgba(255, 26, 104, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(0, 0, 0, 1)'
+                    ],
+                        borderWidth: 1
+        }]
+      };
+
+
+                // </block:setup>
+
+                // <block:config:0>
+                const config = {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        aspectRatio: 3,
+                        responsive: true
+                    }
+                };
+
+                if (chart2) {
+                    myChart2.destroy()
+                }
+                if (chart3) {
+                    myChart3.destroy()
+                }
+
+                myChart = new Chart(document.getElementById('sales-chart'), config)
+      
+       
+       
+    }
+
+                /* <---------------------------------------------------Weekly report ends------------------------------------------------------------> */
+
+
+
+
+                /* <-----------------------------------------------------Monthly report---------------------------------------------------------------> */
+
+
+                function monthlyReport() {
+
+                    chart2 = true
+
+                    const data = {
+                        labels: [{{#each monthlySales }}'{{_id}}', {{/each}}],
+                        datasets: [{
+                            label: 'Total Sale Amount',
+                            data: [{{#each monthlySales }}'{{total}}', {{/each}}],
+                backgroundColor: [
+                    'rgb(103 119 239)',
+                    'rgb(102 187 106)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 99, 132)'
+                ]
+        }]
+      };
+                // </block:setup>
+
+                // <block:config:0>
+                const config = {
+                    type: 'polarArea',
+                    data: data,
+                    options: {
+                        aspectRatio: 3,
+                        responsive: true
+                    }
+                };
+
+                if (chart1) {
+                    myChart.destroy()
+                }
+                if (chart3) {
+                    myChart3.destroy()
+                }
+
+                myChart2 = new Chart(document.getElementById('sales-chart'), config)
+                
+     
+    }
+
+
+                /* <---------------------------------------------------Monthly report ends------------------------------------------------------------> */
+
+
+
+
+                function yearlyReport() {
+
+                    chart3 = true
+
+                    const data = {
+                        labels: [{{#each yearlySales }}'{{_id}}', {{/each}}],
+                        datasets: [{
+                            label: 'Total Sale Amount',
+                            data: [{{#each yearlySales }}'{{total}}', {{/each}}],
+                backgroundColor: [
+                    'rgb(103 119 239)',
+                    'rgb(102 187 106)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 99, 132)'
+                ]
+        }]
+      };
+                // </block:setup>
+
+                // <block:config:0>
+                const config = {
+                    type: "doughnut",
+                    data: data,
+                    options: {
+                        aspectRatio: 3,
+                        responsive: true
+                    }
+                };
+                if (chart1) {
+                    myChart.destroy()
+                }
+                if (chart2) {
+                    myChart2.destroy()
+                }
+
+                myChart3 = new Chart(document.getElementById('sales-chart'), config)
+    }
+
+         
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+            <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+            <style>
+                th,
+                td {
+                    text - align: center;
+                    border: 1 px solid black;
+                    border - collapse: collapse;
+                }
+            </style>
+            <center>
+
+                <table class="table mt-5" id="weekly-table">
+                    <h1>Weekly Report</h1>
+                    <thead>
+                        <tr>
+
+                            <th>order_id</th>
+                            <th>date</th>
+                            <th>total</th>
+                            <th>status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each weeklyReport}}
+                        <tr>
+
+                            <td>{{this._id}}</td>
+                            <td>{{this.date}}</td>
+                            <td>{{this.totalAmount}}</td>
+                            <td>{{this.status}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                <br />
+
+                <table  class="table mt-5" id="monthly-table">
+                    <h1>Monthly Report</h1>
+                    <thead>
+                        <tr>
+
+                            <th>order_id</th>
+                            <th>date</th>
+                            <th>total</th>
+                            <th>status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each monthlyReport}}
+                        <tr>
+
+                            <td>{{_id}}</td>
+                            <td>{{this.date}}</td>
+                            <td>{{this.totalAmount}}</td>
+                            <td>{{this.status}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                
+                <br>
+
+                <table  class="table mt-5" id="yearly-table">
+                    <h1>Yearly Report</h1>
+                    <thead>
+                        <tr>
+                            <th>order_id</th>
+                            <th>date</th>
+                            <th>total</th>
+                            <th>status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each yearlyReport}}
+                        <tr>
+
+                            <td>{{_id}}</td>
+                            <td>{{this.date}}</td>
+                            <td>{{this.totalAmount}}</td>
+                            <td>{{this.status}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+            </center>
+            <script type="text/javascript">
+                
+                function weeklyReportPDF() {
+                    var doc = new jsPDF('p', 'pt', 'letter');
+                    var htmlstring = '';
+                    var tempVarToCheckPageHeight = 0;
+                    var pageHeight = 0;
+                    pageHeight = doc.internal.pageSize.height;
+                    specialElementHandlers = {
+                        // element with id of "bypass" - jQuery style selector  
+                        '#bypassme': function (element, renderer) {
+                            // true = "handled elsewhere, bypass text extraction"  
+                            return true
+                        }
+                    };
+                    margins = {
+                        top: 150,
+                        bottom: 60,
+                        left: 40,
+                        right: 40,
+                        width: 600
+                    };
+                    var y = 20;
+                    doc.setLineWidth(2);
+                    doc.text(200, y = y + 30, "Weekly Sales Report");
+                    doc.autoTable({
+                        html: '#weekly-table',
+                        startY: 70,
+                        theme: 'grid',
+                        columnStyles: {
+                            0: {
+                                cellWidth: 180,
+                            },
+                            1: {
+                                cellWidth: 80,
+                            },
+                            2: {
+                                cellWidth: 80,
+                            },
+                            {{!-- 3: {
+                                cellWidth: 80,
+                            } --}}
+                        },
+                        styles: {
+                            minCellHeight: 40
+                        }
+                    })
+                    doc.save('sales-weekly-report.pdf');
+                } 
+
+
+                function monthlyReportPDF() {
+                    var doc = new jsPDF('p', 'pt', 'letter');
+                    var htmlstring = '';
+                    var tempVarToCheckPageHeight = 0;
+                    var pageHeight = 0;
+                    pageHeight = doc.internal.pageSize.height;
+                    specialElementHandlers = {
+                        // element with id of "bypass" - jQuery style selector  
+                        '#bypassme': function (element, renderer) {
+                            // true = "handled elsewhere, bypass text extraction"  
+                            return true
+                        }
+                    };
+                    margins = {
+                        top: 150,
+                        bottom: 60,
+                        left: 40,
+                        right: 40,
+                        width: 600
+                    };
+                    var y = 20;
+                    doc.setLineWidth(2);
+                    doc.text(200, y = y + 30, "Monthly Sales Report");
+                    doc.autoTable({
+                        html: '#monthly-table',
+                        startY: 70,
+                        theme: 'grid',
+                        columnStyles: {
+                            0: {
+                                cellWidth: 180,
+                            },
+                            1: {
+                                cellWidth: 80,
+                            },
+                            2: {
+                                cellWidth: 80,
+                            },
+                            {{!-- 3: {
+                                cellWidth: 80,
+                            } --}}
+                        },
+                        styles: {
+                            minCellHeight: 40
+                        }
+                    })
+                    doc.save('sales-monthly-report.pdf');
+                } 
+
+
+                function yearlyReportPDF() {
+                    var doc = new jsPDF('p', 'pt', 'letter');
+                    var htmlstring = '';
+                    var tempVarToCheckPageHeight = 0;
+                    var pageHeight = 0;
+                    pageHeight = doc.internal.pageSize.height;
+                    specialElementHandlers = {
+                        // element with id of "bypass" - jQuery style selector  
+                        '#bypassme': function (element, renderer) {
+                            // true = "handled elsewhere, bypass text extraction"  
+                            return true
+                        }
+                    };
+                    margins = {
+                        top: 150,
+                        bottom: 60,
+                        left: 40,
+                        right: 40,
+                        width: 600
+                    };
+                    var y = 20;
+                    doc.setLineWidth(2);
+                    doc.text(200, y = y + 30, "Yearly Sales Report");
+                    doc.autoTable({
+                        html: '#yearly-table',
+                        startY: 70,
+                        theme: 'grid',
+                        columnStyles: {
+                            0: {
+                                cellWidth: 180,
+                            },
+                            1: {
+                                cellWidth: 80,
+                            },
+                            2: {
+                                cellWidth: 80,
+                            },
+                            {{!-- 3: {
+                                cellWidth: 80,
+                            } --}}
+                        },
+                        styles: {
+                            minCellHeight: 40
+                        }
+                    })
+                    doc.save('sales-yearly-report.pdf');
+                } 
+            </script>
+

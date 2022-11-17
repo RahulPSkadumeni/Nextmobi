@@ -1,0 +1,153 @@
+<link rel="stylesheet" href="/stylesheets/styleable.css">
+    <div class="page-wrapper">
+        <main class="main">
+        	<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        		<div class="container">
+        			<h1 class="page-title">Order History<span>Shop</span></h1>
+        		</div><!-- End .container -->
+        	</div><!-- End .page-header -->
+            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Order history</li>
+                    </ol>
+                </div><!-- End .container -->
+            </nav><!-- End .breadcrumb-nav -->
+
+            <div class="page-content">
+            	<div class="cart">
+	                <div class="container-fluid m-5">
+	                	<div class="row">
+	                			<div class="col-md-12">
+					<h3 class="h5 mb-4 text-center"></h3>
+					<div class="table-wrap">
+						<table class="table mt-5">
+						  <thead class="thead-primary">
+										<tr>
+                                            <th>No</th>
+                                            
+                                            <th>Date</th>
+                                        
+                                           <td>Name</td>
+
+                                            <th>address</th>
+                                            <th>pincode</th>
+                                            <th>PhoneNo</th>
+                                
+                                            <th>Payment</th>
+											<th>Price</th>
+											
+											
+                                        
+                                            <th>Status</th>   
+											{{!-- <th>Total</th>
+											<th></th> --}}
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+
+										</tr>
+
+									</thead>
+                                
+{{!-- -------------------------------------------------------- --}}
+                                {{#each orders}}
+					
+                                  
+<tr>
+    <td></td>
+    
+    <td >{{this.date}}</td>
+        <td>{{this.addressDetails.firstName}} {{this.addressDetails.lastName}}</td> 
+    <td>{{this.addressDetails.address}}<br>{{this.addressDetails.country}},{{this.addressDetails.city}},<br>{{this.addressDetails.state}},{{this.addressDetails.pincode}}</td>
+
+    <td>{{this.addressDetails.pincode}}</td>
+    <td>{{this.addressDetails.phone}}</td>
+    <td>{{this.paymentMethod}}</td>
+    <td>{{this.totalAmount}}</td>
+    
+    <td>{{this.status}}</td>
+
+    <td><a href="/view-order-products/{{this._id}}" class="btn btn-warning">view products</a></td>
+     {{!-- <td><img style="width: 70px;height:78px" src="/images/product/{{this.orders.img.[0]}}"  alt=""></td>
+    <td>{{this.deleveryDetails.name}}</td>
+     <td class="total-col">₹ {{this.deleveryDetails.price}}</td>
+     
+   
+     <td></td> --}}
+     {{#ifStatus this.status 'confirmed''shipped''placed' true }}
+      <td><a href="/cancel-order/{{../this._id}}" class="btn btn-danger">Cancell Order</a></td>
+      
+     {{!-- {{else}}
+    <td><a href="" class="btn btn-light text-muted" disabled> Cancell Order</a></td>
+       --}}
+     {{/ifStatus}}
+
+
+
+
+  
+     
+
+
+     {{!-- {{#if this.returnStatus}} --}}
+     <td>
+     {{#ifEquals this.status 'delivered'}}
+     <a href="/return-product/{{../this._id}}"class='btn btn-warning'>Return Product</a>
+     
+
+      {{/ifEquals}}
+
+       
+
+{{/each}}
+        
+
+
+        
+        {{!-- <button class="cart-item-count mr-" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',1)">-</button>{{this.product.quantity}}<button class="cart-item-count ml-3" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',1)">+</button> --}}
+
+      
+
+    {{!-- 									
+                                        </tbody> --}}
+                                    
+  {{!-- -------------------------------------------------------- --}}
+								</table><!-- End .table table-wishlist -->
+                               </div>
+
+
+                               </div>
+
+	                			
+
+		            			<a href="/" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i></a>
+	                		</aside><!-- End .col-lg-3 -->
+	                	</div><!-- End .row -->
+	                </div><!-- End .container -->
+                </div><!-- End .cart -->
+            </div><!-- End .page-content -->
+        </main><!-- End .main -->
+
+      
+    </div><!-- End .page-wrapper -->
+   
+
+ 
+
+ <link rel="stylesheet" href="/public/stylesheets/styleable.css">
+</body>
+<script>
+      var table = document.getElementsByTagName('table')[0],
+        rows = table.getElementsByTagName('tr'),
+        text = 'textContent' in document ? 'textContent' : 'innerText';
+
+    for (var i = 1, len = rows.length; i < len; i++) {
+        rows[i].children[0][text] = i;
+    }
+
+</script>
+
+<script src="/helpers/hbshelpers.js"></script>
