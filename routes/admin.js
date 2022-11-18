@@ -3,7 +3,6 @@ const { upload } = require('../public/javascripts/fileUpload')
 const { getProductDetails } = require('../helpers/product-helpers');
 var router = express.Router();
 
-require('dotenv').config()
 // const fileStorageEngine=multer.diskStorage({
 //   destination:(req,file,cb)=>{
 //     cb(null,'./public/product-image')
@@ -24,8 +23,8 @@ const userHelpers = require('../helpers/user-helpers');
 
 
  const credential={
-  email:process.env.ADMIN_EMAIL,
-  password:process.env.ADMIN_PASSWORD,
+  email:'rahulps995@gmail.com',
+  password:"123456"
 }
 // var loggedOut = false;
 // var invalidId = false;
@@ -370,7 +369,7 @@ let couponId=req.params.id;
 productHelpers.deleteCoupon(couponId).then(()=>{
 
   res.redirect('/admin/coupon-generator')
-}) 
+})
 
 
 });
