@@ -108,8 +108,8 @@ module.exports={
                 }
             ]).toArray()
             console.log("hahhahahahhahahahahahhahah");
-           console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+dailySales[0].dailySales);
-            console.log(dailySales, monthlySales, yearlySales);
+        //    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+dailySales[0].dailySales);
+        //     console.log(dailySales, monthlySales, yearlySales);
             resolve({ dailySales, monthlySales, yearlySales });
         })
     },
