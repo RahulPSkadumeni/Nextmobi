@@ -618,8 +618,8 @@ router.get('/pay/:id',(req,res)=>{
       "payment_method": "paypal"
     },
     "redirect_urls": {
-      "return_url": "http://localhost:3000/paypalorder-success/"+req.params.id,
-      "cancel_url": "http://localhost:3000/cancel"
+      "return_url": "http://nextmobi.tk/paypalorder-success/"+req.params.id,
+      "cancel_url": "http://nextmobi.tk/cancel"
     },
     "transactions": [{
       "amount": {
