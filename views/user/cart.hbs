@@ -37,9 +37,11 @@
 											<th>title</th>
 											
                                             <th>Price</th>
-                                            <th>Quantity</th>   
-											{{!-- <th>Total</th>
-											<th></th> --}}
+                                            <th>Quantity</th>  
+                                            <th></th> 
+											<th>Total</th>
+
+											{{!-- <th></th> --}}
 										</tr>
 
 									</thead>
@@ -91,12 +93,16 @@
     
     
     </td>
-    {{!-- <td  id="{{this.product._id}}price">{{this.price}} </td> --}}
+    <td>
+         <td  class="total-col"><span>₹</span><span id="totalAfterDiscount{{this.product._id}}">{{this.totalAfterDiscount}}</span></td>
+
+    </td>
+   
    
 
                                                             
      <td>
-        <a href='/remove-cart/{{this.product._id}}'class=" delete btn btn-danger">Remove</a>
+        <a href='/remove-cart/{{this.product._id}}'style="font-size:34px" class=" delete border-danger" ><i class="las la-trash"></i></a>
     </td>
 </tr>
        <p id="discountedAmount" hidden>{{this.discountedAmount}}</p>
@@ -351,6 +357,7 @@
                   console.log(quantity)
                   console.log(price)
                   let subTotal = document.getElementById('subTotal').innerHTML = price*quantity 
+                  {{!-- let totalAfterDiscount=document.getElementById('totalAfterDiscount'+productId).innerHTML=discountedAmount*quantity --}}
                   let discountedAmount = document.getElementById('discountedAmount').innerHTML
                   console.log(discountedAmount)
                   let totalDiscount = document.getElementById('totalDiscount').innerHTML = discountedAmount*quantity

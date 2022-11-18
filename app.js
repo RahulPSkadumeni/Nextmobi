@@ -136,6 +136,10 @@ const hbs=expbs.create({
     //     return options.fn()
     //   }
     // },
+    count: (index)=> {
+      return index+1
+       
+   },
     indexing:(index,page,limit)=>{
       console.log('.>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
       console.log(index ,page ,limit);
@@ -146,7 +150,9 @@ const hbs=expbs.create({
       }
     }}
   
-})
+});
+
+
 
 
 

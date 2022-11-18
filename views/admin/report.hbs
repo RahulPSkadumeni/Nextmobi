@@ -272,7 +272,7 @@ var myChart;
                     <tbody>
                         {{#each weeklyReport}}
                         <tr>
-                             <td>{{@index}}</td>
+                             <td>{{count @index}}</td>
                             <td>{{this._id}}</td>
                             <td>{{this.date}}</td>
                             <td>{{this.totalAmount}}</td>
@@ -306,7 +306,7 @@ var myChart;
                     <tbody>
                         {{#each monthlyReport}}
                         <tr>
-                           <td>{{@index}}</td>
+                           <td>{{count @index}}</td>
 
                             <td>{{_id}}</td>
                             <td>{{this.date}}</td>
@@ -336,7 +336,7 @@ var myChart;
                     <tbody>
                         {{#each yearlyReport}}
                         <tr>
-                            <td>{{@index}}</td>
+                            <td>{{count @index}}</td>
 
                             <td>{{_id}}</td>
                             <td>{{this.date}}</td>
@@ -380,16 +380,16 @@ var myChart;
                         theme: 'grid',
                         columnStyles: {
                             0: {
-                                cellWidth: 180,
+                                cellWidth: 30,
                             },
                             1: {
-                                cellWidth: 80,
+                                cellWidth: 150,
                             },
                             2: {
                                 cellWidth: 80,
                             },
                             {{!-- 3: {
-                                cellWidth: 80,
+                                cellWidth: 50,
                             } --}}
                         },
                         styles: {
@@ -429,16 +429,16 @@ var myChart;
                         theme: 'grid',
                         columnStyles: {
                             0: {
-                                cellWidth: 180,
+                                cellWidth: 30,
                             },
                             1: {
-                                cellWidth: 80,
+                                cellWidth: 150,
                             },
                             2: {
                                 cellWidth: 80,
                             },
                             {{!-- 3: {
-                                cellWidth: 80,
+                                cellWidth: 50,
                             } --}}
                         },
                         styles: {
@@ -478,16 +478,16 @@ var myChart;
                         theme: 'grid',
                         columnStyles: {
                             0: {
-                                cellWidth: 180,
+                                cellWidth: 30,
                             },
                             1: {
-                                cellWidth: 80,
+                                cellWidth: 150,
                             },
                             2: {
                                 cellWidth: 80,
                             },
                             {{!-- 3: {
-                                cellWidth: 80,
+                                cellWidth: 50,
                             } --}}
                         },
                         styles: {
